@@ -36,7 +36,7 @@
   }
   nav a.active,
   a:hover {
-    background: lightblue;
+    background: rgb(3, 221, 87);
     transition: 0.5s;
     border-radius: 8px;
   }
@@ -125,8 +125,8 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 70vh;
-    height: 5vh;
+    width: 123vh;
+    height: 7vh;
     border-radius: 10px;
   }
   @media (max-width: 768px) {
@@ -134,7 +134,7 @@
       flex-direction: column;
       align-items: center; 
       width: 50%; 
-      height: 28vh;
+      height: 100vh;
     }
     .scrap-input-box{
       width: 110px;
