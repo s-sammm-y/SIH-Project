@@ -29,7 +29,7 @@
       <label for="check" class="checkbtn">
         <i class="bi bi-list"></i>
       </label>
-      <label class="logo"><img src="ecobin-removebg-preview.png" alt=""></label>
+      <label class="logo"><img src="ecobin-removebg-preview.png" alt="" class="logo-image"></label>
       <ul>
         <li><a class="active" href="./careers.html">Career</a></li>
         <li><a href="#">Schedule Pick-up</a></li>
@@ -38,8 +38,8 @@
           <a href="#" class="icon1"><i class="bi bi-trophy"></i></a>
         </li>
         <li>
-          <a href="#" class="icon1"><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class='fas fa-user-circle'></i>
+          <a href="#" class="icon1"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="bi bi-person-fill" style="font-size: 50px !important;"></i>
             
           </button>
           
@@ -74,7 +74,22 @@
       </div>
     </div>
 
+    <!-- login-signup -->
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel" >Welcome to ECOBIN</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-footer">
+            <a href="#" type="button" class="btn btn-success">Login</a>
+            <a href="#" type="button" class="btn btn-success">Signup</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- E-waste-Catagories section -->
     <div class="container ewaste-catagories-section d-flex justify-content-center align-items-center">
@@ -159,6 +174,28 @@
       </div>
     </div>
 
+    <!-- footer -->
+    <div class="footer">
+      <div class="bottom">
+        <div class="ftrlinks" id="start">
+         <i class="bi bi-twitter-x footer-icons"></i>
+        </div>
+        <div class="ftrlinks">
+          <i class="bi bi-facebook footer-icons"></i>
+        </div>
+        <div class="ftrlinks">
+          <i class="bi bi-instagram footer-icons"></i>
+        </div>
+        <div class="ftrlinks">
+          <i class="bi bi-envelope footer-icons"></i>
+        </div>
+        <div class="ftrlinks" id="end">
+          <i class="bi bi-linkedin footer-icons"></i>
+        </div>
+      </div>
+      <span class="ftrtxt">© ECOBIN| All right reserved</span>
+    </div>
+
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script>
       // initialize swiper js
@@ -178,57 +215,8 @@
         },
       });
     </script>
-    <div class="main">
-
-      <footer>
-          <div class="waves">
-              <div class="wave" id="wave1"></div>
-          </div>
-
-
-          <div class="zoom">
-              <ul class="social_icon">
-                  <li><a href="#"><ion-icon name="logo-instagram"></ion-icon>
-                      </a></li>
-
-                  <li><a href="#"><ion-icon name="mail-outline"></ion-icon>
-                      </a></li>
-
-                  <li><a href="#"><ion-icon name="logo-twitter"></ion-icon>
-                      </a></li>
-
-                  <li><a href="#"><ion-icon name="logo-Linkedin"></ion-icon>
-                      </a></li>
-              </ul>
-
-          </div>
-
-          <ul class="menu">
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">Gmail</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Linkedin</a></li>
-          </ul>
-
-          <p>© ECOBIN| All right reserved</p>
-
-
-      </footer>
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" >Welcome to ECOBIN</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-footer">
-        <a href="#" type="button" class="btn btn-success">Login</a>
-        <a href="#" type="button" class="btn btn-success">Signup</a>
-      </div>
-    </div>
-  </div>
-</div>

@@ -11,8 +11,8 @@
     width: 100%;
   }
   label.logo img {
-    height: 11vh;
-    width: 55vh;
+    height: 8vh;
+    width: 30vh;
     padding: 11px;
     margin: 13px;
   
@@ -72,7 +72,7 @@
       position: fixed;
       width: 100%;
       height: 100vh;
-      background: #2c3e50;
+      background-color: rgb(255, 252, 252);
       top: 80px;
       left: -100%;
       text-align: center;
@@ -89,12 +89,18 @@
     a:hover,
     a.active {
       background: none;
-      color: white;
+      color: black;
     }
     #check:checked ~ ul {
       left: 0;
     }
   }
+  @media (max-width: 1266px) {
+    .logo-image {
+      width: 300px !important;
+    }
+  }
+
   .icon1 {
     font-size: 40px;
     color: black;
@@ -276,4 +282,171 @@
       display: initial;
   }
 
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+:root {
+  --lightblk: #252930;
+  --blk: #111417;
+}
+
+
+
+.footer {
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 2em;
+  gap: 10px;
+  display: flex;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  background-color: #019C5F;
+}
+
+div.right {
+  margin: 0;
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  gap: 10px;
+  flex: 1;
+}
+
+div.left {
+  flex-basis: 100%;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  width: 50%;
+  flex-direction: column;
+  flex: 1;
+}
+
+textarea {
+  font-family: Azeret Mono;
+  box-sizing: border-box;
+  color: whitesmoke;
+  outline: none;
+  resize: none;
+  border: none;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: var(--lightblk);
+}
+
+.msg {
+  flex-basis: 100%;
+}
+
+div.bottom {
+  min-width: 0;
+  overflow-x: scroll;
+  padding-top: 1em;
+  gap: 2em;
+  color: grey;
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+}
+
+.ftrtxt {
+  flex-basis: 100%;
+  font-size: 15px;
+  text-align: center;
+  font-family: Rubik Mono One;
+  color: white;
+}
+
+.ftrhead {
+  font-size: 35px;
+}
+
+.ftrhead::after,
+.ftrtxt::after {
+  content: "\a";
+  white-space: pre;
+}
+
+.ftrlinks {
+  flex-basis: 1;
+}
+
+hr {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  flex-basis: 100%;
+  color: white;
+}
+
+.footer-icons {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.footer-icons:hover {
+  transform: scale(1.1);
+  color: black;
+}
+
+::placeholder {
+  font-family: Azeret Mono;
+}
+
+#start {
+  margin-left: auto;
+}
+
+#end {
+  margin-right: auto;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+  height: 5px;
+  width: 2px;
+}
+
+#submitbtn {
+  display: none;
+  border-radius: 10px;
+  border: none;
+  font-family: Rubik Mono One;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+#submitbtn:hover {
+  background-color: var(--lightblk);
+  color: var(--blk);
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    height: 0%;
+    border-radius: 10px;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    border-radius: 10px;
+  }
 }
