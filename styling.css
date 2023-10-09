@@ -186,6 +186,8 @@
 }
 
 .container-user-review{
+  margin-top: 30px;
+  margin-bottom: 30px;
   height: 98vh;
   display: flex;
   flex-direction: column;
