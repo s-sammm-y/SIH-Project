@@ -54,11 +54,28 @@
   .checkbtn {
     display: none;
   }
+  /* Reset default button styles */
+.search-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.search-btn i {
+  transition: 0.5s ease-in-out;
+  color: inherit;
+}
+
+.search-btn:hover i {
+  transform: scale(1.1);
+  color: black;
+  border-radius: 1000px;
+  background-color: lightgreen;
+}
+
   @media (max-width: 952px) {
-    /* label.logo {
-      font-size: 30px;
-      padding-left: 50px;
-    } */
     nav ul li a {
       font-size: 16px;
     }
