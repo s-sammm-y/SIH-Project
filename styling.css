@@ -10,12 +10,12 @@
     height: 80px;
     width: 100%;
   }
-  label.logo {
-    color: black;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
+  label.logo img {
+    height: 11vh;
+    width: 55vh;
+    padding: 11px;
+    margin: 13px;
+  
   }
   nav ul {
     float: right;
@@ -55,10 +55,10 @@
     display: none;
   }
   @media (max-width: 952px) {
-    label.logo {
+    /* label.logo {
       font-size: 30px;
       padding-left: 50px;
-    }
+    } */
     nav ul li a {
       font-size: 16px;
     }
