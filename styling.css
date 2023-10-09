@@ -125,7 +125,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 123vh;
+    width: 65vh;
     height: 7vh;
     border-radius: 10px;
   }
@@ -173,9 +173,10 @@
 .board{
   max-width: 987px;
   width: 100%;
-  background-color: var(--color-dark);
+  background-color: rgba(144, 238, 144, 0.6);
   text-align: center;
-  border-radius: 8px;
+  border-radius: 30px;
+  border: 1px solid black;
   padding: 4em 0;
 }
 
@@ -196,12 +197,13 @@
 }
 
 .swiper .swiper-slide .comments{
-  background-color: var(--color-light);
   padding: 1.5em 2em;
+  background-color: rgba(0, 0, 0, 0.8);
   width: 50%;
-  border-radius: 5px;
+  border-radius: 11px;
   font-size: .9em;
   position: relative;
+  color: var(--color-light);
 }
 
 .swiper .swiper-slide .comments::after{
@@ -234,7 +236,7 @@
 
 .swiper .profile > a{
   text-decoration: none;
-  color: var(--color-light);
+  color: green;
 }
 
 .swiper .profile > span{
