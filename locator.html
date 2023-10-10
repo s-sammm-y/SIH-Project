@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOBIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="styling.css" />
+    <style>
+      .header{
+        background-color:#019C5F;
+      }
+      .nav-pills{
+        color:white;
+      }
+      .map{
+            text-align: center;
+            width:60%;
+            margin:auto;
+            padding-top: 20px;
+        }
+        .head{
+          background-image: url("./LOGO.png");
+        }
+    </style>
+</head>
+<body> 
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <i class="bi bi-list"></i>
+    </label>
+    <label class="logo"><img src="ecobin-removebg-preview.png" alt="" class="logo-image"></label>
+    <ul>
+      <li><a class="active" href="./careers.html" target="_blank">Career</a></li>
+      <li><a href="#">Schedule Pick-up</a></li>
+      <li><a href="./learn_pages/blogs.html" target="_blank">Learn-&-Earn</a></li>
+      <li>
+        <a href="#" class="icon1"><i class="bi bi-trophy"></i></a>
+      </li>
+      <li>
+        <a href="#" class="icon1"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="bi bi-person-fill" style="font-size: 42px !important;"></i>
+          
+        </button>
+        
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="map">
+    <h2 style="padding-bottom: 10px;">SELECT YOUR PREFERENCE</h2>
+    <!-- <div class="idk">
+        <button id="click">Tap to talk with Chatbot</button>
+    </div> -->
+
+    <!-- Dropdown menu to select a city where we are available currently-->
+    <label for="citySelect">Select a City: </label>
+    <select class="btn btn-success" id="citySelect">
+        <option value="Kolkata">Kolkata</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Delhi">Delhi NCR</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Mumbai">Mumbai</option>
+    </select>
+
+    <!-- Dropdown menu to select a collection center -->
+    <label for="centerSelect">Select a Collection Center: </label>
+    <select class="btn btn-success" id="centerSelect">
+        <!-- Options will be based on user's previous selection , to avoid selection without selecting the cities-->
+        <option value="">Select a Collection Center</option>
+    </select>
+    <hr>
+    <!-- Container to display collection center details -->
+    <div id="collectionCenterDetails">
+        <p>Select a city and collection center to view details and an embedded map.</p>
+    </div>
+    </div>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSsXu7zSiPZLg6RR_w1L0EBPyEeIRfaUrvB39LbL9PNTrzpr4QsNI2uw55WwgscW8zXZA&usqp=CAU" height="225px"/>
+              <div class="card-body">
+                <h3>Hulladek Recycling</h3>
+                <p class="card-text">Waste management service in Kolkata, West Bengal</p>
+                <p>Opening Hours: 10:00 to 19:00</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-success">Schedule Pickup</button>
+                  </div>
+                  <small class="text-body-secondary">Travel time from User's location</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://lh5.googleusercontent.com/p/AF1QipNoEfOub4nI8BFq3iTzzJ6tmXK03b87Ch5V6r8=w600-h485-p-k-no" height="225px"/>
+              <div class="card-body">
+                <h3>E-Waste Bazaar</h3>
+                <p class="card-text">E-waste Recycling center in Kolkata, West Bengal</p>
+                <p>Opening Hours: 10:00 to 20:00</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-success">Schedule Pickup</button>
+                  </div>
+                  <small class="text-body-secondary">Travel time from User's location</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://lh3.googleusercontent.com/p/AF1QipONcyKO1QKUSs9koJe6Jh-JXzvUi92Ubhw2sHqy=s680-w680-h510" height="225px"/>
+              <div class="card-body">
+                <h3>Hindustan Recycling Pvt Ltd</h3>
+                <p class="card-text"> Recycling center in Kolkata, West Bengal</p>
+                <p>Opening Hours: 10:00 to 17:00</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-success">Schedule Pickup</button>
+                  </div>
+                  <small class="text-body-secondary">Travel time from User's location</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://lh3.googleusercontent.com/p/AF1QipMQHR3M04Flx434kKLzBISclLgi3e56--nvBviE=s680-w680-h510" height="225px"/>
+              <div class="card-body">
+                <h3>JS Pigments Pvt Ltd</h3>
+                <p class="card-text">E-waste recycling center in Kolkata, West Bengal</p>
+                <p>Opening Hours: 10:00 to 19:00</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-success">Schedule Pickup</button>
+                  </div>
+                  <small class="text-body-secondary">Travel time from User's location</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://lh3.googleusercontent.com/p/AF1QipOXxwU9HI024oQNP72anRkUjQwM-8Mw4yqIOnfB=s680-w680-h510" height="225px"/>
+              <div class="card-body">
+                <h3>Avanzoe Recycling</h3>
+                <p class="card-text">Waste management service in Howrah, West Bengal</p>
+                <p>Opening Hours: 10:00 to 20:00</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-success">Schedule Pickup</button>
+                  </div>
+                  <small class="text-body-secondary">Travel time from User's location</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="https://lh3.googleusercontent.com/p/AF1QipOlGp6mtDQ_Lh6URSmnJgaUNSNwk93A32NoisEE=s680-w680-h510" height="225px"/>
+              <div class="card-body">
+                <h3>Vital Waste</h3>
+                <p class="card-text">Waste management service in Kolkata, West Bengal</p>
+                <p>Opening Hours: 10:00 to 20:00</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-success">Schedule Pickup</button>
+                  </div>
+                  <small class="text-body-secondary">Travel time from User's location</small>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-body-secondary">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-body-secondary">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-body-secondary">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+  <script src="./Base.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <!-- JavaScript to handle city and collection center selection and also put a embedded map based on selection-->
+  
+</body>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body> -->
+</html>

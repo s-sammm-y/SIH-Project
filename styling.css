@@ -11,8 +11,8 @@
     width: 100%;
   }
   label.logo img {
-    height: 8vh;
-    width: 30vh;
+    height: 10vh;
+    width: 40vh;
     padding: 11px;
     margin: 13px;
   
@@ -27,16 +27,16 @@
     margin: 0 5px;
   }
   nav ul li a {
-    color: black;
+    color: white;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
     padding: 7px 13px;
     border-radius: 2px;
     text-transform: uppercase;
   }
   nav a.active,
   a:hover {
-    background: rgb(3, 221, 87);
+    background: rgba(3, 221, 87,0.5);
     transition: 0.5s;
     border-radius: 8px;
   }
@@ -55,6 +55,7 @@
     display: none;
   }
   /* Reset default button styles */
+
 .search-btn {
   border: none;
   background: none;
@@ -71,7 +72,7 @@
 .search-btn:hover i {
   transform: scale(1.1);
   color: black;
-  border-radius: 1000px;
+  border-radius: 50%;
   background-color: lightgreen;
 }
 
@@ -119,7 +120,7 @@
   }
 
   .icon1 {
-    font-size: 40px;
+    font-size: 30px;
     color: black;
   }
   .home-intro {
@@ -148,7 +149,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 65vh;
+    width: 48vw;
     height: 7vh;
     border-radius: 10px;
   }
