@@ -9,7 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="footer.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -21,6 +21,16 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
+
+    <!-- google-font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Slab:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styling.css" />
   </head>
   <body>
@@ -29,20 +39,33 @@
       <label for="check" class="checkbtn">
         <i class="bi bi-list"></i>
       </label>
-      <label class="logo"><img src="ecobin-removebg-preview.png" alt="" class="logo-image"></label>
+      <label class="logo"
+        ><img src="ecobin-removebg-preview.png" alt="" class="logo-image"
+      /></label>
       <ul>
-        <li><a class="active" href="./careers.html" target="_blank">Career</a></li>
+        <li>
+          <a class="active" href="./careers.html" target="_blank">Career</a>
+        </li>
         <li><a href="#">Schedule Pick-up</a></li>
-        <li><a href="./learn_pages/blogs.html" target="_blank">Learn-&-Earn</a></li>
+        <li>
+          <a href="./learn_pages/blogs.html" target="_blank">Learn-&-Earn</a>
+        </li>
         <li>
           <a href="#" class="icon1"><i class="bi bi-trophy"></i></a>
         </li>
         <li>
-          <a href="#" class="icon1"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="bi bi-person-fill" style="font-size: 50px !important;"></i>
-            
-          </button>
-          
+          <a href="#" class="icon1"
+            ><button
+              type="button"
+              class="btn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i
+                class="bi bi-person-fill"
+                style="font-size: 50px !important"
+              ></i>
+            </button>
           </a>
         </li>
       </ul>
@@ -69,8 +92,8 @@
           </div>
           <div>
             <button class="search-btn">
-            <i class="bi bi-search search-btn"></i>
-          </button>
+              <i class="bi bi-search search-btn"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -78,12 +101,25 @@
 
     <!-- login-signup -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel" >Welcome to ECOBIN</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Welcome to ECOBIN
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-footer">
             <a href="#" type="button" class="btn btn-success">Login</a>
@@ -94,52 +130,115 @@
     </div>
 
     <!-- E-waste-Catagories section -->
-    <div class="container ewaste-catagories-section d-flex justify-content-center align-items-center flex-column mt-4" style="gap: 90px;">
+    <div
+      class="container ewaste-catagories-section d-flex justify-content-center align-items-center flex-column mt-5"
+      style="gap: 90px"
+    >
       <h1>E-waste-Catagories</h1>
-      <div class="catagory-cards row" style="text-align: center;">
+      <div class="catagory-cards row" style="text-align: center">
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+          <img
+            class="bd-placeholder-img rounded-circle"
+            width="140"
+            height="140"
+            src="/catagory-images/electric-equipments.jpeg"
+            alt=""
+          />
+          <h2 class="fw-normal">
+            Electrical and electronic tools
+          </h2>
+          <p><a class="btn btn-success" href="#">See More »</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+          <img
+            class="bd-placeholder-img rounded-circle"
+            width="140"
+            height="140"
+            src="/catagory-images/lighiting.jpg"
+            alt=""
+          />
+          <h2 class="fw-normal">Lighting equipment</h2>
+          <p><a class="btn btn-success" href="#">See More »</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+          <img
+            class="bd-placeholder-img rounded-circle"
+            width="140"
+            height="140"
+            src="/catagory-images/consumer.jpeg"
+            alt=""
+          />
+          <h2 class="fw-normal">Consumer electronics</h2>
+          <p><a class="btn btn-success" href="#">See More »</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
       </div>
 
-      <div class="catagory-cards row" style="text-align: center;">
+      <div class="catagory-cards row" style="text-align: center">
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+          <img
+            class="bd-placeholder-img rounded-circle"
+            width="140"
+            height="140"
+            src="/catagory-images/information-technology.jpeg"
+            alt=""
+          />
+          <h2 class="fw-normal">
+            IT Equipments
+          </h2>
+          <p><a class="btn btn-success" href="#">See More »</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-          <h2 class="fw-normal">Heading</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+          <img
+            class="bd-placeholder-img rounded-circle"
+            width="140"
+            height="140"
+            src="/catagory-images/latge-household.jpeg"
+            alt=""
+          />
+          <h2 class="fw-normal">Large Household Appliances</h2>
+          <p><a class="btn btn-success" href="#">See More »</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="bd-placeholder-img rounded-circle" src="data:image/jpeg;base64,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" alt="">
-          <h2 class="fw-normal">Heading</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="#">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+          <img
+            class="bd-placeholder-img rounded-circle"
+            width="140"
+            height="140"
+            src="/catagory-images/small-household-appliances.jpeg"
+            alt=""
+          />
+          <h2 class="fw-normal">Small Household Appliances</h2>
+          <p><a class="btn btn-success" href="#">See More »</a></p>
+        </div>
+        <!-- /.col-lg-4 -->
       </div>
     </div>
+    <!-- About-us -->
 
+    <div class="container d-flex justify-content-center align-items-center flex-wrap">
 
+      <div class="col-lg-6">
+        <p>
+          <h1>Who are we?</h1>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, eaque. Numquam quas doloremque nesciunt temporibus veniam, similique enim officiis harum quis maxime excepturi nisi debitis necessitatibus aperiam ratione recusandae corporis.
+          <br><br>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, earum minima velit quidem quaerat ad quam pariatur iste perferendis, commodi laboriosam. Ipsam nostrum illo soluta exercitationem dolore totam debitis voluptatem?
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque id recusandae veritatis error saepe consequatur cumque rem repudiandae laborum? Illum suscipit fugit quos quod laudantium totam fuga, unde officiis similique!
+          <br><br>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur officiis similique sequi dicta assumenda aspernatur laboriosam alias! Libero pariatur at impedit quos ut consequuntur id, tempore veniam animi quidem. Quaerat.
+          <br><br>
+          <a class="btn btn-success" href="#">Know more?</a>
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <img src="https://ntvb.tmsimg.com/assets/p8696131_b_h10_aa.jpg?w=960&h=540" style="" alt="" width="700">
+      </div>
+    </div>
 
     <!-- user-review-section -->
     <div class="container-user-review">
@@ -218,7 +317,7 @@
     <div class="footer">
       <div class="bottom">
         <div class="ftrlinks" id="start">
-         <i class="bi bi-twitter-x footer-icons"></i>
+          <i class="bi bi-twitter-x footer-icons"></i>
         </div>
         <div class="ftrlinks">
           <i class="bi bi-facebook footer-icons"></i>
@@ -255,8 +354,14 @@
         },
       });
     </script>
-    
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
