@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="styling.css" />
   </head>
   <body>
+   <div class="background">
     <nav>
       <input type="checkbox" id="check" />
       <label for="check" class="checkbtn">
@@ -44,28 +45,24 @@
       /></label>
       <ul>
         <li>
+          <a href="./learn_pages/blogs.html" target="_blank">Learn-&-Earn</a>
+        </li>
+        <li>
           <a class="active" href="./careers.html" target="_blank">Career</a>
         </li>
         <li><a href="#">Schedule Pick-up</a></li>
         <li>
-          <a href="./learn_pages/blogs.html" target="_blank">Learn-&-Earn</a>
+          <a href="#" class="icon1 pt-3"><i class="bi bi-trophy"></i></a>
         </li>
         <li>
-          <a href="#" class="icon1"><i class="bi bi-trophy"></i></a>
-        </li>
-        <li>
-          <a href="#" class="icon1"
-            ><button
-              type="button"
-              class="btn"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
+          <a href="#" class="icon1 pt-3" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+            
               <i
                 class="bi bi-person-fill"
-                style="font-size: 50px !important"
+                style="font-size: 30px !important"
               ></i>
-            </button>
+            
           </a>
         </li>
       </ul>
@@ -73,32 +70,28 @@
     <div class="container-fluid home-intro">
       <div class="home-content">
         <div style="font-size: 50px; color: white">Search. Find. Recycle</div>
-        <div class="container intro-content">
-          <div style="color: gray">I want to Recycle</div>
-          <div>
+        <div class="searchbar">
+          <div class="text1" style="display: inline;"><p style="display: inline;">I want to recycle</p></div>
+          <div class="item-input" style="display: inline;">
+            <input type="text"
+            placeholder="Scrap-Metal"
+            class="scrap-input-box"/>
+          </div>
+          <div class="text2" style="display: inline;"><p style="display: inline;">in</p></div>
+          <div class="zip-input" style="display: inline;">
             <input
-              type="text"
-              placeholder="Scrap-Metal"
-              class="scrap-input-box"
+            type="text"
+            placeholder="Zip Code"
+            style="text-align: center; width: 90px"
             />
           </div>
-          <div style="color: gray">in</div>
-          <div>
-            <input
-              type="text"
-              placeholder="Zip Code"
-              style="text-align: center; width: 90px"
-            />
-          </div>
-          <div>
-            <button class="search-btn">
-              <i class="bi bi-search search-btn"></i>
-            </button>
+          <div class="search-icon" style="display: inline;">
+            <i class="bi bi-search"></i>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
     <!-- login-signup -->
 
     <div
@@ -134,14 +127,14 @@
       class="container ewaste-catagories-section d-flex justify-content-center align-items-center flex-column mt-5"
       style="gap: 90px"
     >
-      <h1>E-waste-Catagories</h1>
+      <h1>E-Waste Catagories</h1>
       <div class="catagory-cards row" style="text-align: center">
         <div class="col-lg-4">
           <img
             class="bd-placeholder-img rounded-circle"
             width="140"
             height="140"
-            src="/catagory-images/electric-equipments.jpeg"
+            src="./catagory-images/electric-equipments.jpeg"
             alt=""
           />
           <h2 class="fw-normal">
@@ -155,7 +148,7 @@
             class="bd-placeholder-img rounded-circle"
             width="140"
             height="140"
-            src="/catagory-images/lighiting.jpg"
+            src="./catagory-images/lighiting.jpg"
             alt=""
           />
           <h2 class="fw-normal">Lighting equipment</h2>
@@ -167,7 +160,7 @@
             class="bd-placeholder-img rounded-circle"
             width="140"
             height="140"
-            src="/catagory-images/consumer.jpeg"
+            src="./catagory-images/consumer.jpeg"
             alt=""
           />
           <h2 class="fw-normal">Consumer electronics</h2>
@@ -182,7 +175,7 @@
             class="bd-placeholder-img rounded-circle"
             width="140"
             height="140"
-            src="/catagory-images/information-technology.jpeg"
+            src="./catagory-images/information-technology.jpeg"
             alt=""
           />
           <h2 class="fw-normal">
@@ -196,7 +189,7 @@
             class="bd-placeholder-img rounded-circle"
             width="140"
             height="140"
-            src="/catagory-images/latge-household.jpeg"
+            src="./catagory-images/latge-household.jpeg"
             alt=""
           />
           <h2 class="fw-normal">Large Household Appliances</h2>
@@ -208,7 +201,7 @@
             class="bd-placeholder-img rounded-circle"
             width="140"
             height="140"
-            src="/catagory-images/small-household-appliances.jpeg"
+            src="./catagory-images/small-household-appliances.jpeg"
             alt=""
           />
           <h2 class="fw-normal">Small Household Appliances</h2>
@@ -218,33 +211,29 @@
       </div>
     </div>
     <!-- About-us -->
-
+    <h1 style="text-align: center;">About Us</h1>
     <div class="container d-flex justify-content-center align-items-center flex-wrap">
-
-      <div class="col-lg-6">
-        <p>
-          <h1>Who are we?</h1>
+      <div class="col-lg-6 about-text">
+        <p style="padding-top:20px;">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, eaque. Numquam quas doloremque nesciunt temporibus veniam, similique enim officiis harum quis maxime excepturi nisi debitis necessitatibus aperiam ratione recusandae corporis.
           <br><br>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, earum minima velit quidem quaerat ad quam pariatur iste perferendis, commodi laboriosam. Ipsam nostrum illo soluta exercitationem dolore totam debitis voluptatem?
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque id recusandae veritatis error saepe consequatur cumque rem repudiandae laborum? Illum suscipit fugit quos quod laudantium totam fuga, unde officiis similique!
           <br><br>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur officiis similique sequi dicta assumenda aspernatur laboriosam alias! Libero pariatur at impedit quos ut consequuntur id, tempore veniam animi quidem. Quaerat.
-          <br><br>
-          <a class="btn btn-success" href="#">Know more?</a>
+          <a class="btn btn-success" href="#"><p>Know More</p></a>
         </p>
       </div>
 
-      <div class="col-lg-6">
-        <img src="https://ntvb.tmsimg.com/assets/p8696131_b_h10_aa.jpg?w=960&h=540" style="" alt="" width="700">
+      <div class="col-lg-6 d-flex justify-content-center align-items-top">
+        <img src="./catagory-images/team.png" style="" alt="" height="300" width="500">
       </div>
     </div>
 
     <!-- user-review-section -->
     <div class="container-user-review">
       <div class="board">
-        <h2>Word form our customers</h2>
-        <p>Some of the fullfilled costomers reviews</p>
+        <h2 class="board-text">Word form our customers</h2>
+        <p class="board-text">Some of the fullfilled costomers reviews</p>
 
         <!-- Slider main container-user-review -->
         <div class="swiper">

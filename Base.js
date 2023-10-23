@@ -91,8 +91,8 @@ function displayEmbeddedMap() {
         // Embed the selected map using an iframe element of the HTML
         const iframe = document.createElement("iframe");
         iframe.src = selectedEmbedLink;
-        iframe.width = "400"; // Adjusting the width
-        iframe.height = "300"; // Adjusting the height
+        iframe.width = "480"; // Adjusting the width
+        iframe.height = "360"; // Adjusting the height
 
         // Clear the previous map and displaying the new one based on user choice
         collectionCenterDetails.innerHTML = "";
