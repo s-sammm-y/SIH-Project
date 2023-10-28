@@ -217,7 +217,9 @@
         <p>Select a city and collection center to view details and an embedded map.</p>
     </div>
   </div>
-    <div class="album py-5 bg-body-tertiary">
+    
+    <div class="album py-3 bg-body-tertiary" style="background-color: gainsboro;">
+      <h2 style="background-color: gainsboro; text-align: center;">Listings</h2>
       <div class="container">
   
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -341,6 +343,16 @@
         </div>
       </div>
     </div>
+    <div class="px-4 py-4 mt-3 text-center" style="background-color: gainsboro;">
+      <h1 class="display-8 fw-bold text-body-emphasis">Want to join ECOBIN?</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Are you a recycling center registered under CPCB? Join us today and offer your services to the users of ECOBIN.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-success btn-lg px-4 gap-3">Register with ECOBIN</button>
+          <button type="button" onclick="redirectToAnotherPage()" class="btn btn-outline-success btn-lg px-4">Open Dashboard</button>
+        </div>
+      </div>
+    </div>
   
   </main>
   <div class="footer">
@@ -363,6 +375,15 @@
     </div>
     <span class="ftrtxt">© ECOBIN| All right reserved</span>
   </div>
+  <script>
+    function redirectToAnotherPage() {
+        // Specify the URL you want to redirect to
+        var redirectUrl = "https://www.figma.com/file/N90KdEL7ZCufkeW1Ti0PCB/Untitled?type=design&node-id=234-2&mode=design&t=7qJsc7lkUnBmBuyW-0";
+
+        // Use JavaScript to redirect the user to the specified URL
+        window.location.href = redirectUrl;
+    }
+</script>
   <script src="./Base.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <!-- JavaScript to handle city and collection center selection and also put a embedded map based on selection-->

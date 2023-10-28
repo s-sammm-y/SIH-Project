@@ -1,0 +1,83 @@
+@media screen and (max-width: 1000px) {
+    .navbar{
+     justify-content: center;
+    }
+    .form-inline{
+        justify-content: center;
+    }
+   .form-control{
+    justify-content: center;
+   } 
+    .box{
+        width: fit-content;
+    }
+    .logo{
+    position: relative;
+    right: 200px;
+    }
+    .card1{
+     width: 90vh;
+     position:relative;
+     top: 10px; left:20vh;
+    }
+
+
+.card2 img{
+    width: 60vh;
+}
+.card-body{
+    width: 60vh;
+}
+.card-title{
+    font-size: medium;
+}
+.card-text{
+    
+    font-size: 20px;
+}
+.container{
+    position: relative;
+    top: 10px; left:13vh;
+}
+ }
+ @media screen and (max-width: 500px) {
+    .navbar{
+     justify-content: center;
+    }
+    .logo{
+     position: relative;
+     left: 30vh;
+    }
+    .box{
+        justify-content: center;
+       }
+    .card1{
+     width: 40vh;
+     position:relative;
+     top: 10px; left:30%;
+    }
+
+.card2 img{
+    width: 40vh;
+}
+.card-body{
+    width: 40vh;
+}
+.card-title{
+    font-size: medium;
+}
+.card-text{
+    
+    font-size: 10px;
+}
+.container{
+    position: relative;
+    top: 10px; left:20%;
+}
+.buttonn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+ }
