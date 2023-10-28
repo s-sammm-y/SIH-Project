@@ -98,7 +98,7 @@ a:hover {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-color: rgb(255, 252, 252);
+    background-color: rgb(49, 97, 141);
     top: 80px;
     left: -100%;
     text-align: center;
@@ -512,10 +512,7 @@ font-size:25px;
   margin-left:15px;
   color: gray;
 }
-.bi-search:hover{
-  border-radius: 10px;
-  background-color: lightgreen;
-}
+
 @media (max-width: 600px){
 .searchbar{
   display:flex;

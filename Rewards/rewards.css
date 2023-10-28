@@ -1,0 +1,254 @@
+nav{
+    background-color:#019C5F;
+    height: 80px;
+    width: 100%;
+  }
+  label.logo img {
+    height: 10vh;
+    width: 36vh;
+    padding: 11px;
+    margin: 13px;
+  }
+  nav ul {
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  nav ul li a {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 7px 13px;
+    border-radius: 2px;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+  }
+  a:hover {
+    background-color:rgba(255,255,255,0.7);
+    color:black;
+    border-radius:10px;
+  }
+  .bi-trophy{
+    font-size: 26px;
+    padding:5px;
+  }
+  
+  .checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  #check {
+    display: none;
+  }
+  .checkbtn {
+    display: none;
+  }
+  /* Reset default button styles */
+  .search-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .search-btn i {
+    transition: 0.5s ease-in-out;
+    color: inherit;
+  }
+  
+  .search-btn:hover i {
+    transform: scale(1.1);
+    color: black;
+    border-radius: 1000px;
+    background-color: lightgreen;
+  }
+  
+  @media (max-width: 952px) {
+    nav ul li a {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 1050px) {
+    .checkbtn {
+      display: block;
+    }
+    ul {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: rgb(49, 97, 141);
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all 0.5s;
+    }
+    nav ul li {
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a {
+      font-size: 20px;
+    }
+    a:hover,
+    a.active {
+      background: none;
+      color: black;
+    }
+    #check:checked ~ ul {
+      left: 0;
+    }
+  }
+  @media (max-width: 1266px) {
+    .logo-image {
+      width: 300px !important;
+    }
+  }
+.user-details{
+    margin:0;
+    padding:20px;
+    background-color:rgba(48, 187, 67, 0.562) ;
+    height:270px;
+    width:100%;
+}
+.user-details>h2{
+    padding-left:80px;
+}
+.credit-points-display{
+    background-color: gainsboro;
+    width:400px;
+    margin:0px auto 0 auto;
+    padding:15px;
+    border-radius: 10px;
+    text-align: center;
+}
+.buttons{
+    width: fit-content;
+    margin: auto;
+}
+.buttons>button{
+    font-size: 14px;
+}
+.redeem{
+    background-color:#019C5F;
+    width:100%;
+    height:700px;
+}
+.redeem>h2{
+    text-align: center;
+    padding: 20px 0 20px 0;
+    color:white;
+}
+.rewards{
+    height:500px;
+    width:1100px;
+    margin:auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    gap:15px;
+}
+.card>p{
+    text-align: center;
+    margin-top:15px;
+}
+.card>button{
+    width:fit-content;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.other{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.leaderboard{
+    background-color:rgba(43, 43, 43, 0.562);
+    height:60px;
+    width:100%;
+    text-align: center;
+    color:white;
+}
+.leaderboard>h2{
+    padding-top:10px;
+}
+.board{
+    height:345px;
+    width:100%;
+}
+.position{
+    display: flex;
+    width:1000px;
+    background-color: #019C5F;
+    margin:auto;
+    margin-top: 10px;
+    justify-content: space-between;
+    padding:5px 5px 5px 5px;
+    border-radius:30px;
+}
+.rank{
+    background-color: black;
+    padding:10px 15px 0 15px;
+    border-radius:30px;
+}
+.points{
+    background-color: black;
+    padding:10px 15px 0 15px;
+    border-radius:30px;
+}
+h4{
+    color:white;
+    font-size: medium;
+}
+.visit{
+width:fit-content;
+margin:auto;
+}
+.card>img{ 
+    border-radius:10px;
+}
+.footer {
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 2em;
+    gap: 10px;
+    display: flex;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+    background-color: #019c5f;
+  }
+.footer-icons {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  
+.footer-icons:hover {
+    transform: scale(1.1);
+    color: black;
+  }
+  .ftrtxt {
+    flex-basis: 100%;
+    font-size: 15px;
+    text-align: center;
+    font-family: Rubik Mono One;
+    color: white;
+  }
+  .bottom{
+    display:flex;
+    gap: 20px;
+    margin:auto;
+  }
+  

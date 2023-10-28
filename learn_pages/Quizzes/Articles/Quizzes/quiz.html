@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="./quiz.css">
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <i class="bi bi-list"></i>
+        </label>
+        <label class="logo"
+          ><img src="./assets/images/ecobin-removebg-preview.png" alt="" class="logo-image"
+        /></label>
+        <ul class="list">
+          <li>
+            <a href="#" class="icon1 pt-3"><i class="bi bi-trophy"></i></a>
+          </li>
+          <li>
+            <a href="#" class="icon1 pt-3" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+              
+                <i
+                  class="bi bi-person-fill"
+                  style="font-size: 30px !important"
+                ></i>
+              
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="navigator">
+        <div class="nav-item"><a class="item" href="#">Articles & Blogs</a></div>
+        <div class="nav-item"><a class="item" href="#">Videos</a></div>
+        <div class="nav-item active">Quizzes & Challenges</div>
+        <div class="nav-item"><a class="item" href="#">Forums</a></div>
+      </div>
+      <hr style="margin-top: 0;">
+      <div class="px-4 py-2 my-1 text-center">
+        <h3 class="display-7 fw-bold text-body-emphasis">Earn Credit Points</h3>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Attempt quizzes on various topics related to e-waste and earn credit points based on your performance.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-outline-success btn-lg gap-1" style="font-size: 15px; font-weight: 700;">View Leaderboard</button>
+          </div>
+        </div>
+      </div>
+      <div class="quiz-cards">
+        <h1 style="padding:15px 0 15px 75px ">Live Quizzes</h1>
+        <div class="container">
+          <div class="row">
+            <div class="quiz col-sm-3" style="width:360px">
+              <div class="q-pic"><img src="https://swachhbharat.mygov.in/sites/all/themes/swachhbharat/assets/images/Ewaste-pledge-2022.png" height="238.23px" class="quiz-img" alt="banner"></div>
+              <div class="content">
+                <h5 style="text-align: center; padding:10px 0 10px 0">E-Waste and Informal Sector in India Quiz</h5>
+                <div class="time"></div>
+                <div class="main-details">
+                  <div class="questions-text md">
+                    <div class="questions" style="font-size: 20px; font-weight: 700; padding-left: 0; margin-right:8px;">10</div>
+                    <div class="text">Questions</div>
+                  </div>
+                  <div class="time-text md">
+                    <div class="time"><span style="font-size: 20px; font-weight: 700;">300</span> sec</div>
+                    <div class="text">Duration</div>
+                  </div>
+                </div>
+                <div class="play">
+                  <button type="button" class="attempt btn btn-outline-success btn-lg gap-1" style="font-size: 15px;">Play</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1" style="width:30px"></div>
+            <div class="quiz col-sm-3" style="width:360px">
+              <div class="q-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR20Tw2LSSa_L-Aatn0yKuPGIjHur6NfvCtTtdaghyqIhzlBw3dgq5rnOM06rWgM7eeijY&usqp=CAU" height="238.23px" class="quiz-img" alt="banner"></div>
+              <div class="content">
+                <h5 style="text-align: center; padding:10px 0 10px 0">E-Waste Legislation in Indian States Quiz</h5>
+                <div class="time"></div>
+                <div class="main-details">
+                  <div class="questions-text md">
+                    <div class="questions" style="font-size: 20px; font-weight: 700; padding-left: 0; margin-right:8px;">10</div>
+                    <div class="text">Questions</div>
+                  </div>
+                  <div class="time-text md">
+                    <div class="time"><span style="font-size: 20px; font-weight: 700;">300</span> sec</div>
+                    <div class="text">Duration</div>
+                  </div>
+                </div>
+                <div class="play">
+                  <button type="button" class="attempt btn btn-outline-success btn-lg gap-1" style="font-size: 15px;">Play</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1" style="width:30px"></div>
+            <div class="quiz col-sm-3" style="width:360px">
+              <div class="q-pic"><img src="https://swachhbharat.mygov.in/sites/all/themes/swachhbharat/assets/images/Ewaste-pledge-2022.png" height="238.23px" class="quiz-img" alt="banner"></div>
+              <div class="content">
+                <h5 style="text-align: center; padding:10px 0 10px 0">E-Waste Impact on Indian Biodiversity Quiz</h5>
+                <div class="time"></div>
+                <div class="main-details">
+                  <div class="questions-text md">
+                    <div class="questions" style="font-size: 20px; font-weight: 700; padding-left: 0; margin-right:8px;">10</div>
+                    <div class="text">Questions</div>
+                  </div>
+                  <div class="time-text md">
+                    <div class="time"><span style="font-size: 20px; font-weight: 700;">300</span> sec</div>
+                    <div class="text">Duration</div>
+                  </div>
+                </div>
+                <div class="play">
+                  <button type="button" class="attempt btn btn-outline-success btn-lg gap-1" style="font-size: 15px;">Play</button>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="gap" style="height: 30px; width:100%; background-color: gainsboro;"></div>
+          <div class="row">
+            <div class="quiz col-sm-3" style="width:360px">
+              <div class="q-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR20Tw2LSSa_L-Aatn0yKuPGIjHur6NfvCtTtdaghyqIhzlBw3dgq5rnOM06rWgM7eeijY&usqp=CAU" height="238.23px" class="quiz-img" alt="banner"></div>
+              <div class="content">
+                <h5 style="text-align: center; padding:10px 0 10px 0">Consumer Electronics and E-Waste Handling Rules Quiz</h5>
+                <div class="time"></div>
+                <div class="main-details">
+                  <div class="questions-text md">
+                    <div class="questions" style="font-size: 20px; font-weight: 700; padding-left: 0; margin-right:8px;">10</div>
+                    <div class="text">Questions</div>
+                  </div>
+                  <div class="time-text md">
+                    <div class="time"><span style="font-size: 20px; font-weight: 700;">300</span> sec</div>
+                    <div class="text">Duration</div>
+                  </div>
+                </div>
+                <div class="play">
+                  <button type="button" class="attempt btn btn-outline-success btn-lg gap-1" style="font-size: 15px;">Play</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1" style="width:30px"></div>
+            <div class="quiz col-sm-3" style="width:360px">
+              <div class="q-pic"><img src="https://swachhbharat.mygov.in/sites/all/themes/swachhbharat/assets/images/Ewaste-pledge-2022.png" height="238.23px" class="quiz-img" alt="banner"></div>
+              <div class="content">
+                <h5 style="text-align: center; padding:10px 0 10px 0">E-Waste Recycling Processes in India Quiz</h5>
+                <div class="time"></div>
+                <div class="main-details">
+                  <div class="questions-text md">
+                    <div class="questions" style="font-size: 20px; font-weight: 700; padding-left: 0; margin-right:8px;">10</div>
+                    <div class="text">Questions</div>
+                  </div>
+                  <div class="time-text md">
+                    <div class="time"><span style="font-size: 20px; font-weight: 700;">300</span> sec</div>
+                    <div class="text">Duration</div>
+                  </div>
+                </div>
+                <div class="play">
+                  <button type="button" class="attempt btn btn-outline-success btn-lg gap-1" style="font-size: 15px;">Play</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1" style="width:30px"></div>
+            <div class="quiz col-sm-3" style="width:360px">
+              <div class="q-pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR20Tw2LSSa_L-Aatn0yKuPGIjHur6NfvCtTtdaghyqIhzlBw3dgq5rnOM06rWgM7eeijY&usqp=CAU" height="238.23px" class="quiz-img" alt="banner"></div>
+              <div class="content">
+                <h5 style="text-align: center; padding:10px 10px 10px 10px">E-Waste Awareness and Education Quiz</h5>
+                <div class="time"></div>
+                <div class="main-details">
+                  <div class="questions-text md">
+                    <div class="questions" style="font-size: 20px; font-weight: 700; padding-left: 0; margin-right:8px;">10</div>
+                    <div class="text">Questions</div>
+                  </div>
+                  <div class="time-text md">
+                    <div class="time"><span style="font-size: 20px; font-weight: 700;">300</span> sec</div>
+                    <div class="text">Duration</div>
+                  </div>
+                </div>
+                <div class="play">
+                  <button type="button" class="attempt btn btn-outline-success btn-lg gap-1" style="font-size: 15px;">Play</button>
+                </div>
+              </div>
+            </div>           
+          </div>
+        </div>
+        <div class="more">
+          <button type="button" class="attempt btn btn-success" style="font-size: 14px;">Load More</button>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="bottom">
+          <div class="ftrlinks" id="start">
+            <i class="bi bi-twitter-x footer-icons"></i>
+          </div>
+          <div class="ftrlinks">
+            <i class="bi bi-facebook footer-icons"></i>
+          </div>
+          <div class="ftrlinks">
+            <i class="bi bi-instagram footer-icons"></i>
+          </div>
+          <div class="ftrlinks">
+            <i class="bi bi-envelope footer-icons"></i>
+          </div>
+          <div class="ftrlinks" id="end">
+            <i class="bi bi-linkedin footer-icons"></i>
+          </div>
+        </div>
+        <span class="ftrtxt">© ECOBIN| All right reserved</span>
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
