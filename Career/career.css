@@ -80,11 +80,7 @@ nav{
     nav ul li a {
       font-size: 20px;
     }
-    a:hover,
-    a.active {
-      background: none;
-      color: black;
-    }
+    
     #check:checked ~ ul {
       left: 0;
     }
