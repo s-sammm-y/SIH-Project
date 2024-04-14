@@ -208,3 +208,19 @@ nav{
     padding-bottom: 0 !important;
 }
 
+/* button css */
+.navigator button{
+  border: none;
+  background: none;
+  font-weight: bold;
+}
+
+.navigator .active{
+  background-color: #019C5F;
+  color:white;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 0.6rem;
+  height: 2.5rem;
+  width: auto;
+}
