@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-waste Collecting Centers</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5yhrxriB3Dj6FjMvzagPVVgr_m_SdyKg&libraries=places"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    #map {
+      height: 450px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px solid #000;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>E-waste Collection Centers near You</h1>
+<div id="map"></div>
+<script>
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+    });
+
+    const infoWindow = new google.maps.InfoWindow();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+
+          const userMarker = new google.maps.Marker({
+            position: userLocation,
+            map: map,
+            title: 'Your Location',
+          });
+
+          infoWindow.setContent('Your Location');
+          infoWindow.open(map, userMarker);
+
+          // Map center after obtaining the user's location [doesn't work for local server :"(  ]
+          map.setCenter(userLocation);
+
+          // Fetch nearby places with the keyword 
+          const request = {
+            location: userLocation,
+            radius: 10000, // 10 km search radius 
+            keyword: 'ewaste collection centres',
+          };
+
+          const service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, (results, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              for (let i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+              }
+            }
+          });
+        },
+        () => {
+          console.error('Error getting user location.');
+        }
+      );
+    } 
+    else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+
+    function createMarker(place) {
+      const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        title: place.name,
+      });
+
+      google.maps.event.addListener(marker, 'click', () => {
+        infoWindow.setContent(place.name);
+        infoWindow.open(map, marker);
+      });
+    }
+  }
+  
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5yhrxriB3Dj6FjMvzagPVVgr_m_SdyKg&libraries=places&callback=initMap">
+</script>
+
+</body>
+</html>

@@ -90,10 +90,7 @@
     nav ul li a {
       font-size: 20px;
     }
-    a.active {
-      background: none;
-      color: black;
-    }
+   
     #check:checked ~ ul {
       left: 0;
     }
@@ -250,8 +247,32 @@
                 <p>Opening Hours: 10:00 to 20:00</p>
                 <div class="lower-section">
                   <div class="btn-group d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Schedule Pickup</button>
                   </div>
+                  <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h1 class="modal-title fs-5">E-Waste Bazaar</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-0">
+          <p>Enter details about your e-waste and confirm pickup</p>
+        </div>
+        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+          <button type="button" class="btn btn-lg btn-success">Enter details</button>
+          <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Confirm Pickup</button>
+        </div>
+      </div>
+    </div>
+    </div>
                   <div class="btn-group d-flex justify-content-center mb-2">
                     <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
                   </div>
