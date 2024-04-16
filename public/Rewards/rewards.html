@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="./rewards.css">
+    <style>
+      .alert-warning{
+        font-size: 12px;
+      }
+    </style>
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <i class="bi bi-list"></i>
+    </label>
+    <label class="logo"
+      ><a href="../index.html"><img src="./assets/images]/ecobin-removebg-preview.png" alt="" class="logo-image"/></a></label>
+    <ul>
+      
+      <li style="padding-right:0; color:white;font-size: 18px;font-weight: bold;" id="username"></li>
+      <li>
+        <a href="#" class="icon1 pt-3" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+          
+            <i
+              class="bi bi-person-fill"
+              style="font-size: 30px !important"
+            ></i>
+          
+        </a>
+      </li>
+    </ul>
+  </nav>
+    <div class="user-details">
+        <h2 id="greetings">Please Login First</h2>
+        <div class="credit-points-display">
+            <i class="bi bi-wallet-fill" style="display: inline; font-size:22px; margin-right:10px"></i>
+            <h5 style="display: inline; margin-bottom:30px">Available Points</h5>
+            <h3 id="points" style="margin: 20px 10px 20px 24px">NaN<h3>
+          <div class="buttons">
+            <!--<button type="button" class="btn btn-dark" style="display: inline; margin-right:40px">Redeem Rewards</button>-->
+            <button type="button" class="btn btn-dark">Get More Points</button>    
+          </div> 
+        </div>
+    </div>
+    <div class="redeem">
+       <h2>Redeem your Rewards</h2>
+       <div class="rewards">
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
+          <img src="https://m.media-amazon.com/images/I/71qKmUlzKpL._AC_UF1000,1000_QL80_.jpg" style="object-fit: cover; height: 134px; width: 200px;" >
+          <p>8 Perfumes Pack @ Rs.299 only from Just Herbs</p>
+          <button id="coupon" type="button" class="btn btn-dark redeem-btn" data-money="100" data-c-code="EDP8BOGMDM8NK">Redeem</button>
+        </div>
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+          <img src="./assets/images]/flipkart.jpg">
+          <p>Details about the gift card/voucher/coupon</p>
+          <button id="coupon" type="button" class="btn btn-dark redeem-btn" data-money="500" data-c-code="FLIP@10">Redeem</button>
+        </div>
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+          <img src="./assets/images]/reliance.webp">
+          <p>Details about the gift card/voucher/coupon</p>
+          <button id="coupon" type="button" class="btn btn-dark redeem-btn" data-money="800" data-c-code="RELIANCE20DIGI">Redeem</button>
+        </div>
+        <div class="modal" id="confirmationModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Redeem Coupon</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Do you want to buy this coupon code for <span id="modal-amount"></span>?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="couponRedeem">Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="other" style="background-color: #D9D9D9; border-radius:10px; align-items: center;">
+          <h3 style="margin-top: 20px; margin-bottom: 30px;">Redeem for Cash</h3>
+          <h6 >Available Balance</h6>
+          <div style="display: flex; align-items: center;margin-top: 20px;">
+            <i class="bi bi-currency-rupee" style="font-size: 20px;"></i>
+            <h3 id="availableBalance" style="margin-left: 5px; margin-top: 0;">0.0</h3>
+          </div>
+          <div class="buttons">
+              <button id="redeemBtn" type="button" class="btn btn-dark" style="display: inline; margin-right:40px"
+              data-bs-toggle="modal" data-bs-target="#withdrawModal">Redeem</button>
+              <button type="button" class="btn btn-dark" id="withdrawBtn" >Withdraw</button>
+          </div> 
+        </div>
+      
+        <div class="modal fade" id="withdrawModal" tabindex="-1" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="withdrawModalLabel">Redeem Points for Cash</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <p>Your available points: <span id="modalAvailableBalance">0.0</span></p>
+                      <div class="alert alert-warning" role="alert">
+                        <i class="bi bi-info-circle-fill text-warning"></i> You cannot redeem for cash if your credit balance is less than 500 pts
+                      </div>
+                      <div class="mb-3">
+                          <label for="pointsToRedeem" class="form-label">Points to Redeem</label>
+                          <input type="number" class="form-control" id="pointsToRedeem">
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button id="confirmRedeemBtn" type="button" class="btn btn-primary">Redeem</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+          const redeemBtn = document.getElementById('redeemBtn');
+          const availableBalance = document.getElementById('availableBalance');
+          const modalAvailableBalance = document.getElementById('modalAvailableBalance');
+          const pointsToRedeemInput = document.getElementById('pointsToRedeem');
+          const confirmRedeemBtn = document.getElementById('confirmRedeemBtn');
+
+          redeemBtn.addEventListener('click', () => {
+            modalAvailableBalance.innerText = points.innerText;
+          });
+
+          confirmRedeemBtn.addEventListener('click', () => {
+            const pointsToRedeem = parseInt(pointsToRedeemInput.value);
+            if(parseInt(pointsToRedeem.innerText)<500){
+              alert("Your credit balance is low !");
+            }
+            else if (pointsToRedeem > 0 ) {
+              console.log(`Redeeming ${pointsToRedeem} points for cash.`);
+              const modal = document.getElementById('withdrawModal');
+              const modalInstance = bootstrap.Modal.getInstance(modal);
+              modalInstance.hide();
+              pointsToRedeemInput.value = '';
+            } else {
+              alert('Please enter a valid number of points to redeem.');
+            }
+          });
+        });
+        document.querySelectorAll('.redeem-btn').forEach(button => {
+          button.addEventListener('click', () => {
+            const money = button.getAttribute('data-money');
+            document.getElementById('modal-amount').textContent = money;
+            const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            modal.show();
+          });
+        });
+
+        </script>
+      
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+          <img src="./assets/images]/gplay.png">
+          <p>Details about the gift card/voucher/coupon</p>
+          <button id="coupon" type="button" class="btn btn-dark">Redeem</button>
+        </div>
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+          <img src="./assets/images]/lifestyle.png">
+          <p>Details about the gift card/voucher/coupon</p>
+          <button id="coupon" type="button" class="btn btn-dark">Redeem</button>
+        </div>
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+          <img src="./assets/images]/boat2.jpg" height="134px">
+          <p>Details about the gift card/voucher/coupon</p>
+          <button id="coupon" type="button" class="btn btn-dark">Redeem</button>
+        </div>
+        <div class="other" style="background-color: #D9D9D9; border-radius:10px;">
+          <h3 style="margin-top: 60px; margin-bottom: 20px;">Purchase Eco-Friendly Merchandise</h3>
+          <button type="button" class="visit btn btn-dark">View Merchandise</button>
+        </div>
+      </div>
+    </div>
+    <div class="leaderboard">
+      <h2>Leaderboard</h2>
+    </div>
+    <div class="board">
+      <div class="position">
+        <div class="rank">
+          <h4>1</h4>
+        </div>
+        <div class="name">
+          <h4 style="padding-top: 5px; padding-left:60px; font-weight: bolder;">Sourashis Biswas</h4>
+        </div>
+        <div class="points">
+          <h4>900 pts.</h4>
+        </div>
+      </div>
+      <div class="position">
+        <div class="rank">
+          <h4>2</h4>
+        </div>
+        <div class="name">
+          <h4 style="padding-top: 5px; padding-left:60px; font-weight: bolder;">Sarthik Dasgupta</h4>
+        </div>
+        <div class="points">
+          <h4>800 pts.</h4>
+        </div>
+      </div>
+      <div class="position">
+        <div class="rank">
+          <h4>3</h4>
+        </div>
+        <div class="name">
+          <h4 style="padding-top: 5px; padding-left:60px; font-weight: bolder;">Ankit Das</h4>
+        </div>
+        <div class="points">
+          <h4>700 pts.</h4>
+        </div>
+      </div>
+      <div class="position">
+        <div class="rank">
+          <h4>4</h4>
+        </div>
+        <div class="name">
+          <h4 style="padding-top: 5px; padding-left:60px; font-weight: bolder;">Aniruddha Pal</h4>
+        </div>
+        <div class="points">
+          <h4>650 pts.</h4>
+        </div>
+      </div>
+      <div class="position">
+        <div class="rank">
+          <h4>5</h4>
+        </div>
+        <div class="name">
+          <h4 style="padding-top: 5px; padding-left:60px; font-weight: bolder;">Sohini Bannerjee</h4>
+        </div>
+        <div class="points">
+          <h4>600 pts.</h4>
+        </div>
+      </div>
+      <div class="position">
+        <div class="rank">
+          <h4>6</h4>
+        </div>
+        <div class="name">
+          <h4 style="padding-top: 5px; padding-left:60px; font-weight: bolder;">Soumyadeep Basu</h4>
+        </div>
+        <div class="points">
+          <h4>500 pts.</h4>
+        </div>
+      </div>
+    </div>
+    <div class="leaderboard">
+    </div>
+    <!-- footer -->
+    <div class="footer">
+      <div class="bottom">
+        <div class="ftrlinks" id="start">
+          <i class="bi bi-twitter-x footer-icons"></i>
+        </div>
+        <div class="ftrlinks">
+          <i class="bi bi-facebook footer-icons"></i>
+        </div>
+        <div class="ftrlinks">
+          <i class="bi bi-instagram footer-icons"></i>
+        </div>
+        <div class="ftrlinks">
+        <a href="mailto:ecobintechnology@gmail.com">
+          <i class="bi bi-envelope footer-icons"></i>
+        </a>
+        </div>
+        <div class="ftrlinks" id="end">
+          <i class="bi bi-linkedin footer-icons"></i>
+        </div>
+      </div>
+      <span class="ftrtxt">© ECOBIN| All right reserved</span>
+    </div>
+    <script>
+      let user;
+      window.addEventListener('DOMContentLoaded', async () => {
+        console.log('DOMContentLoaded event fired');
+        try {
+          const response = await fetch('/api/getUserByIP');
+          if (response.ok) {
+            const data = await response.json();
+            user = data.user;
+            if (user) {
+              const username = user.username;
+              const money = user.withdrawableAmount;
+              const pts = user.points;
+              document.getElementById('username').innerText = username;
+              document.getElementById('greetings').innerText = `Hi ${username},`;
+              document.getElementById('points').innerText = pts;
+              document.getElementById('availableBalance').innerText = money;
+              //document.getElementById('modalAvailableBalance').innerText =pts;
+            }
+          } else {
+            console.error('Error fetching user by IP:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error fetching user by IP:', error);
+        }
+      });
+
+      document.getElementById('confirmRedeemBtn').addEventListener('click', async () => {
+        const pointsToRedeem = document.getElementById('pointsToRedeem').value;
+        const USERNAME = user.username;
+        const availableBalance = document.getElementById('availableBalance');
+        if (pointsToRedeem.trim() === '') {
+            alert('Please enter the number of points to redeem.');
+            return;
+        }
+        try {
+            const response = await fetch('/api/redeemPoints', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({USERNAME, pointsToRedeem })
+            });
+
+            if (response.ok) {
+                alert('Points redeemed successfully.');
+                location.reload();
+            }
+            else {    
+                const errorMessage = await response.text();
+                alert(errorMessage);
+            }
+        } catch (error) {
+            console.error('Error redeeming points:', error);
+            alert('An error occurred while redeeming points.');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const redeemBtns = document.querySelectorAll('.redeem-btn');
+        redeemBtns.forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const dataMoney = btn.getAttribute('data-money');
+                const dataCouponCode = btn.getAttribute('data-c-code');
+                const USERNAME = user.username;
+                const bal = user.points;
+                if(parseInt(dataMoney)>bal){
+                  alert("Not enough Balance");
+                  return;
+                }
+                try {
+                    const response = await fetch('/api/redeemCoupon', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ dataMoney, dataCouponCode, USERNAME })
+                    });
+                    if (response.ok) {
+                        alert('Coupon redeemed successfully.');
+                        location.reload();
+                    } else {
+                        const errorMessage = await response.text();
+                        alert(errorMessage);
+                    }
+                } catch (error) {
+                    console.error('Error redeeming coupon:', error);
+                    alert('An error occurred while redeeming coupon.');
+                }
+            });
+        });
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '64e625380d1dce000775dc0d' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production'
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+  </body>
+</html>

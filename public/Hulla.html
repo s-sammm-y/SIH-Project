@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-waste Collecting Centers</title>
+  <script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+      key: "AIzaSyC5yhrxriB3Dj6FjMvzagPVVgr_m_SdyKg",
+      v: "weekly",
+      // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+      // Add other bootstrap parameters as needed, using camel case.
+    });
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="styling.css" />
+  <style>
+    nav{
+    background-color:#019C5F;
+    height: 85px;
+    width: 100%;
+  }
+  label.logo img {
+    height: 10vh;
+    width: 36vh;
+    padding: 11px;
+    margin: 13px;
+  }
+  /*gdhdghgdhgd*/
+  .logo {
+  color: #019C5f;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+label.logo:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+label.logo a:hover {
+    background-color: #019C5F; /* Change background color to green when anchor tag is hovered */
+}
+
+label.logo a:hover label.logo-image {
+    color: white; 
+}
+/*gdhgdhgdh*/
+  nav ul {
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li {
+    display: inline-block;
+    line-height: 74px;
+    margin: 0 5px;
+  }
+  nav ul li a {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 7px 13px;
+    border-radius: 2px;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+  }
+  .icon1:hover {
+    background-color:rgba(255,255,255,0.7);
+    color:black;
+    border-radius:10px;
+  }
+  .bi-trophy{
+    font-size: 26px;
+    padding:5px;
+    padding-bottom: 0;
+  }
+  
+  .checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+  }
+  #check {
+    display: none;
+  }
+  .checkbtn {
+    display: none;
+  }@media (max-width: 952px) {
+    nav ul li a {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 1050px) {
+    .checkbtn {
+      display: block;
+    }
+    ul {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: rgb(49, 97, 141);
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all 0.5s;
+    }
+    nav ul li {
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a {
+      font-size: 20px;
+    }
+   
+    #check:checked ~ ul {
+      left: 0;
+    }
+  }
+  @media (max-width: 1266px) {
+    .logo-image {
+      width: 300px !important;
+      align-self: flex-start;
+    }
+  }
+      .nav-pills{
+        color:white;
+      }
+      .map{
+            text-align: center;
+            width:55%;
+            border-radius: 10px;
+            padding-bottom:20px;
+            margin:auto;
+            margin-top: 20px;
+            padding-top: 20px;
+            background-color: gainsboro;
+        }
+        .head{
+          background-image: url("./LOGO.png");
+        }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: left;
+      margin-top: 0;
+    }
+    h1 {
+      color: #019C5F;
+    }
+    #map {
+      height: 500px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px solid #000;
+      margin-top: 20px;
+    }
+    .map {
+    text-align: center;
+    width: 75%; 
+    border-radius: 10px;
+    padding-bottom: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: gainsboro;
+    }
+    #centerList {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      list-style-type: none;
+      padding: 0;
+      justify-content: center;
+      list-style-type: none;
+    }
+    #centerList li {
+      margin-right:20px; /*margin between list items*/
+    }
+    #centers {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .center {
+      cursor: pointer;
+      padding: 5px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+    }
+    .center:hover {
+      background-color: #f0f0f0;
+    }
+    .center-button {
+      background-color: #019C5F;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .footer {
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 2em;
+  gap: 10px;
+  display: flex;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  background-color: #019c5f;
+}
+.footer-icons {
+  color: #019C5f;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.footer-icons:hover {
+  transform: scale(1.1);
+  color: white;
+}
+.ftrtxt {
+  flex-basis: 100%;
+  font-size: 15px;
+  text-align: center;
+  font-family: Rubik Mono One;
+  color: white;
+}
+.ftrlinks {
+    display: inline-block;
+}
+.ftrlinks:hover {
+    background-color: #019C5F;
+}
+.ftrlinks a:hover {
+    background-color: #019C5F; /* Change background color to green when anchor tag is hovered */
+}
+.footer-icons {
+    color: black; 
+}
+.ftrlinks a:hover .footer-icons {
+    color: white; 
+}
+.bottom{
+  display:flex;
+  gap: 20px;
+  margin:auto;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <i class="bi bi-list"></i>
+    </label>
+    <label class="logo"
+      ><a href="./index.html"><img src="./ecobin-removebg-preview.png" alt="" class="logo-image"
+    /></a></label>
+    <ul class="list">
+      <li>
+        <a href="#" class="icon1 pt-3"><i class="bi bi-trophy"></i></a>
+      </li>
+      <li>
+        <a href="#" class="icon1 pt-3" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+          
+            <i
+              class="bi bi-person-fill"
+              style="font-size: 30px !important"
+            ></i>
+          
+        </a>
+      </li>
+    </ul>
+  </nav>
+<div class="map">
+<h1>E-Waste Collection Centers near You</h1>
+<div id="map"></div>
+<ul id="centerList"></ul>
+<div id="distance">
+  
+</div>
+
+</div>
+<div id="myModal" class="modal2">
+  <!-- Modal content -->
+  <div class="modal-content2">
+    <span class="close">&times;</span>
+      <h1 class="modal-title fs-5">Schedule Pickup</h1>
+      <p>Enter details about your e-waste and confirm pickup</p>
+      <form id="schedulingForm" action="/schedulingPickup" method="POST" enctype="multipart/form-data">
+        <label for="mobileNumber">Upload image for recognition and price prediction:</label><br>
+        <input type="file" name="avatar"/><br><br>
+        <label for="category">Select e-waste category:</label><br>
+        <div class="select-container">
+          <input type="hidden" id="category" name="category">
+          <button type="button" class="category" onclick="setCategory('phones')">PHONE</button>
+          <button type="button" class="category" onclick="setCategory('laptop')">LAPTOP</button>
+          <button type="button" class="category" onclick="setCategory('desktops')">DESKTOP</button>
+          <button type="button" class="category" onclick="setCategory('small-appliance')">SMALL APPLIANCE</button>
+          <button type="button" class="category" onclick="setCategory('large-appliance')">LARGE APPLIANCE</button>
+          <button type="button" class="category" onclick="setCategory('electronics-equipment')">ELECTRONICS</button>
+        </div>
+        <label for="mobileNumber">Mobile Number:</label><br>
+        <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="date">Select your preferred date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+        <label for="time">Select a time:</label><br>
+        <select id="time" name="time">
+            <option value="10-11am">10:00 AM - 11:00 AM</option>
+            <option value="11-12am">11:00 AM - 12:00 PM</option>
+            <option value="1-2pm">1:00 PM - 2:00 PM</option>
+            <option value="2-3pm">2:00 PM - 3:00 PM</option>
+            <option value="3-4pm">3:00 PM - 4:00 PM</option>
+            <option value="4-5pm">4:00 PM - 5:00 PM</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+        <input style="display: block" class="btn btn-sm btn-success" type="submit" value="Submit">
+      </form>
+  </div>
+</div>
+<script>
+  let userLocation;
+  let flag = 0;
+  let directionsRenderer;
+  document.getElementById('magic').style.display = 'none';
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+    });
+    const infoWindow = new google.maps.InfoWindow();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          fetch('/updateLocation', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userLocation),
+        });
+          const userMarker = new google.maps.Marker({
+            position: userLocation,
+            map: map,
+            title: 'Your Location',
+          });
+
+          infoWindow.setContent('Your Location');
+          infoWindow.open(map, userMarker);
+
+          map.setCenter(userLocation);
+
+          const request = {
+            location: userLocation,
+            radius: 500000, //search radius
+            keyword: 'ewaste recycling and collection centres', //search prompt //IMPORTANT
+          };
+
+          const service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, (results, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              for (let i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+                addCenterToList(results[i]);
+              }
+            }
+          });
+        },
+        () => {
+          console.error('Error getting user location.');
+        }
+      );
+    } 
+    else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+
+    function createMarker(place) {
+      const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        title: place.name,
+      });
+
+      google.maps.event.addListener(marker, 'click', () => {
+        infoWindow.setContent(place.name);
+        infoWindow.open(map, marker);
+        showRoute(place.geometry.location, place);
+      });
+    }
+
+    function addCenterToList(place) {
+      const centerList = document.getElementById('centerList');
+      const li = document.createElement('li');
+      const button = document.createElement('button');
+      button.className = 'center-button';
+      button.textContent = place.name;
+      button.onclick = function() {
+        showRoute(place.geometry.location, place);
+      };
+      li.appendChild(button);
+      centerList.appendChild(li);
+    }
+
+    function showRoute(destination, place) {
+      if (userLocation) {
+        if (flag === 1) {
+          directionsRenderer.setMap(null);
+          flag = 0;
+        }
+        const directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer({map: map});
+
+        directionsService.route(
+          {
+            origin: userLocation,
+            destination: destination,
+            travelMode: 'DRIVING'
+          },
+          (response, status) => {
+            if (status === 'OK') {
+              directionsRenderer.setDirections(response);
+              const distance = response.routes[0].legs[0].distance.text;
+              const distanceElement = document.getElementById('distance');
+              distanceElement.innerHTML = place.name + " is " + distance + ' away from your location  ';
+              //alert(place.name + ' is ' + distance + ' away from your location.');
+              var btn = document.createElement('button');
+              btn.innerHTML = 'Proceed'; // Set the button text
+              btn.classList.add('btn', 'btn-sm', 'btn-success');
+btn.onclick = function() { // Set the button's click event
+document.getElementById('myModal').style.display = 'block';
+const form = document.getElementById('schedulingForm');
+const hiddenInput = document.createElement('input');
+hiddenInput.type = 'hidden';
+hiddenInput.name = 'placeName'; // The name attribute of the input field
+hiddenInput.value = place.name; // Assigning place.name to the value attribute
+form.appendChild(hiddenInput);
+};
+document.getElementsByClassName('close')[0].onclick = function() {
+  document.getElementById('myModal').style.display = 'none';
+}
+window.onclick = function(event) {
+  if (event.target == document.getElementById('myModal')) {
+    document.getElementById('myModal').style.display = 'none';
+  }
+}
+
+distanceElement.appendChild(btn); // Append the button to the div
+            }
+            else {
+              window.alert('Directions request failed due to ' + status);
+            }
+          });
+        flag = 1;
+      }
+    }
+  }
+  const form = document.getElementById('schedulingForm');
+const hiddenInput = document.createElement('input');
+hiddenInput.type = 'hidden';
+hiddenInput.name = 'placeName'; // The name attribute of the input field
+hiddenInput.value = place.name; // Assigning place.name to the value attribute
+form.appendChild(hiddenInput);
+</script>
+
+<div class="album py-3 bg-body-tertiary" style="background-color: gainsboro;">
+  <h2 style="background-color: gainsboro; text-align: center;">Listings</h2>
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSsXu7zSiPZLg6RR_w1L0EBPyEeIRfaUrvB39LbL9PNTrzpr4QsNI2uw55WwgscW8zXZA&usqp=CAU" height="225px"/>
+          <div class="card-body">
+            <h3>Hulladek Recycling</h3>
+            <p class="card-text">Waste management service in Kolkata, West Bengal</p>
+            <p>Opening Hours: 10:00 to 19:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Hulladek-Recycling-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh5.googleusercontent.com/p/AF1QipNoEfOub4nI8BFq3iTzzJ6tmXK03b87Ch5V6r8=w600-h485-p-k-no" height="225px"/>
+          <div class="card-body">
+            <h3>E-Waste Bazaar</h3>
+            <p class="card-text">E-waste Recycling center in Kolkata, West Bengal</p>
+            <p>Opening Hours: 10:00 to 20:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" id="schedule" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Schedule Pickup</button>
+              </div>
+              <div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content rounded-4 shadow">
+    <div class="modal-header border-bottom-0">
+      <h1 class="modal-title fs-5">Schedule Pickup</h1>
+      
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body py-0">
+      <p>Enter details about your e-waste and confirm pickup</p>
+      <form id="schedulingForm" action="/schedulingPickup" method="POST">
+        <div class="select-container">
+          <input type="hidden" id="centerName" name="centerName">
+          <label for="category">Select e-waste category:</label><br>
+          <input type="hidden" id="category" name="category">
+          <button type="button" class="category" onclick="setCategory('phones')">PHONE</button>
+          <button type="button" class="category" onclick="setCategory('laptop')">LAPTOP</button>
+          <button type="button" class="category" onclick="setCategory('desktops')">DESKTOP</button>
+          <button type="button" class="category" onclick="setCategory('small-appliance')">SMALL APPLIANCE</button>
+          <button type="button" class="category" onclick="setCategory('large-appliance')">LARGE APPLIANCE</button>
+          <button type="button" class="category" onclick="setCategory('electronics-equipment')">ELECTRONICS</button>
+        </div>
+        <label for="mobileNumber">Mobile Number:</label><br>
+        <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="date">Select your preferred date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+        <label for="time">Select a time:</label><br>
+        <select id="time" name="time">
+            <option value="10-11am">10:00 AM - 11:00 AM</option>
+            <option value="11-12am">11:00 AM - 12:00 PM</option>
+            <option value="1-2pm">1:00 PM - 2:00 PM</option>
+            <option value="2-3pm">2:00 PM - 3:00 PM</option>
+            <option value="3-4pm">3:00 PM - 4:00 PM</option>
+            <option value="4-5pm">4:00 PM - 5:00 PM</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+        <input style="display: block" class="btn btn-sm btn-success" type="submit" value="Submit">
+      </form>
+    </div>
+    <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+    </div>
+  </div>
+</div>
+</div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="E-Waste-Bazaar-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipONcyKO1QKUSs9koJe6Jh-JXzvUi92Ubhw2sHqy=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <h4>Hindustan Recycling Pvt Ltd</h4>
+            <p class="card-text"> Recycling center in Kolkata, West Bengal</p>
+            <p>Opening Hours: 10:00 to 17:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Hindustan-Recycling-Pvt.-Ltd.-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipMQHR3M04Flx434kKLzBISclLgi3e56--nvBviE=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <h3>JS Pigments Pvt Ltd</h3>
+            <p class="card-text">E-waste recycling center in Kolkata, West Bengal</p>
+            <p>Opening Hours: 10:00 to 19:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="JS-Pigments-Pvt.-Ltd.-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipOXxwU9HI024oQNP72anRkUjQwM-8Mw4yqIOnfB=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <div class="name" style="width:100%;">
+              <h3 style="text-align: left; display: inline;">Avanzoe Recycling</h3>
+            </div>
+            <p class="card-text">Waste management service in Howrah, West Bengal</p>
+            <p>Opening Hours: 10:00 to 20:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Avanzoe-Recycling-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipOlGp6mtDQ_Lh6URSmnJgaUNSNwk93A32NoisEE=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <h3>Vital Waste</h3>
+            <p class="card-text">Waste management service in Kolkata, West Bengal</p>
+            <p>Opening Hours: 10:00 to 20:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Vital-Waste-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipOXxwU9HI024oQNP72anRkUjQwM-8Mw4yqIOnfB=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <div class="name" style="width:100%;">
+              <h3 style="text-align: left; display: inline;">Avanzoe Recycling</h3>
+            </div>
+            <p class="card-text">Waste management service in Howrah, West Bengal</p>
+            <p>Opening Hours: 10:00 to 20:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Avanzoe-Recycling-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipOXxwU9HI024oQNP72anRkUjQwM-8Mw4yqIOnfB=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <div class="name" style="width:100%;">
+              <h3 style="text-align: left; display: inline;">Avanzoe Recycling</h3>
+            </div>
+            <p class="card-text">Waste management service in Howrah, West Bengal</p>
+            <p>Opening Hours: 10:00 to 20:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Avanzoe-Recycling-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipOXxwU9HI024oQNP72anRkUjQwM-8Mw4yqIOnfB=s680-w680-h510" height="225px"/>
+          <div class="card-body">
+            <div class="name" style="width:100%;">
+              <h3 style="text-align: left; display: inline;">Avanzoe Recycling</h3>
+            </div>
+            <p class="card-text">Waste management service in Howrah, West Bengal</p>
+            <p>Opening Hours: 10:00 to 20:00</p>
+            <div class="lower-section">
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-success">Schedule Pickup</button>
+              </div>
+              <div class="btn-group d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-sm btn-primary">User Reviews</button>
+              </div>
+              <small id="Avanzoe-Recycling-travel-time" class="text-body-secondary">Travel time from User's location</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="Base.js"></script>
+<div class="px-4 py-4 mt-3 text-center" style="background-color: gainsboro;">
+  <h1 class="display-8 fw-bold text-body-emphasis">Want to join ECOBIN?</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Are you a recycling center registered under CPCB? Join us today and offer your services to the users of ECOBIN.</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <button type="button" class="btn btn-success btn-lg px-4 gap-3">Register with ECOBIN</button>
+      <button type="button" onclick="redirectToAnotherPage()" class="btn btn-outline-success btn-lg px-4">Open Dashboard</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<div class="footer">
+<div class="bottom">
+  <div class="ftrlinks" id="start">
+    <i class="bi bi-twitter-x footer-icons"></i>
+  </div>
+  <div class="ftrlinks">
+    <i class="bi bi-facebook footer-icons"></i>
+  </div>
+  <div class="ftrlinks">
+    <i class="bi bi-instagram footer-icons"></i>
+  </div>
+  <div class="ftrlinks">
+    <a href="mailto:ecobintechnology@gmail.com">
+        <i class="bi bi-envelope footer-icons"></i>
+    </a>
+  </div>
+  <div class="ftrlinks" id="end">
+    <i class="bi bi-linkedin footer-icons"></i>
+  </div>
+</div>
+<span class="ftrtxt">© ECOBIN| All right reserved</span>
+</div>
+<script>
+function redirectToAnotherPage() {
+    // Specify the URL you want to redirect to
+    var redirectUrl = "https://www.figma.com/file/N90KdEL7ZCufkeW1Ti0PCB/Untitled?type=design&node-id=234-2&mode=design&t=7qJsc7lkUnBmBuyW-0";
+
+    // Use JavaScript to redirect the user to the specified URL
+    window.location.href = redirectUrl;
+}
+function setCategory(category) {
+    document.getElementById('category').value = category;
+    // You can also add any other logic you need when a category is selected
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- JavaScript to handle city and collection center selection and also put a embedded map based on selection-->
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '64e625380d1dce000775dc0d' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5yhrxriB3Dj6FjMvzagPVVgr_m_SdyKg&libraries=places&callback=initMap">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="/forgot-password" method="POST">
+          <h2>Please Enter your details</h2>
+          <h5>We will send a OTP to your registered Email-id</h5>
+          <style>
+            h2{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            h5{
+              text-align: center;
+            }
+          </style>
+          <div class="input-box">
+            <input type="text" id="identifier" name="identifier" placeholder="Registered Username or Email-id" required>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

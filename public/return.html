@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+      .parent{
+        display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  /* Optionally, set a fixed height for the parent container if needed */
+  height: 100vh;  
+      }
+      .content{
+        text-align: center;
+        color:white
+      }
+      body{
+         background-color:#019C5F ;
+      }
+    </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="content">
+      <img src="./CLONE2/SIH-Project/ecobin-removebg-preview.png" height="95px" width="485px">
+      <h2>Logged In Successfully</h2>
+      <div id="message" style="font-size: 14px;"></div>
+    </div>
+  </div>
+    <script>
+        function redirect() {
+        const messageDiv = document.getElementById('message');
+        let countdown = 5;
+        function update() {
+          if(countdown >= 0) {
+            messageDiv.innerText = `You'll be redirected to the home page in ${countdown} sec`;
+            countdown--
+            setTimeout(update, 1000);
+          }
+          else{
+            window.location.href = './CLONE2/SIH-Project/index.html';
+          }
+        }
+        update();
+    }
+    redirect();
+    </script>
+</body>
+</html>

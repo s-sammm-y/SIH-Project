@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter New Password</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .wrapper {
+          text-align: center;
+          margin-top: 20px;
+        }
+        .input-box {
+          margin-bottom: 10px;
+        }
+        .btn {
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Enter OTP and New Password</h2>
+        <form action="/reset-password" method="POST">
+            <input type="hidden" id="userId" name="userId">
+            <div class="input-box">
+                <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit" class="btn">Reset Password</button>
+        </form>
+    </div>
+    <script>
+        // Get the user ID from the query parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('user');
+        // Set the user ID as the value of the hidden input field
+        document.getElementById('userId').value = userId;
+      </script>
+</body>
+</html>

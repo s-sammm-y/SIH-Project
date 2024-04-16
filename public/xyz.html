@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+      .parent{
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh;  
+      }
+      .content{
+        text-align: center;
+        color:white
+      }
+      body{
+         background-color:#019C5F ;
+      }
+    </style>
+</head>
+<body>
+    <script>
+        // Function to extract verification token from URL
+        function getVerificationToken() {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get('token');
+        }
+    
+        // Function to send request to server for email verification
+        async function verifyEmail() {
+          const token = getVerificationToken();
+          if (token) {
+            try {
+              const response = await fetch(`http://localhost:3000/api/verify-email/${token}`, {
+                method: 'POST',
+              });
+              const data = await response.json();
+              if (data.success) {
+                alert('Email verification successful! You can now login.');
+                //document.getElementById('message').innerText = "Your Email is now Verified";
+                redirect();
+              } 
+              else {
+                alert('Email Verification Failed !!')
+                document.getElementById('message').innerText = "We couldn't verify your Email";
+              }
+            } 
+            catch (error) {
+              console.error('Error:', error);
+              alert('An error occurred. Please try again later.');
+            }
+          } 
+          else {
+            alert('Verification token not found.');
+          }
+        }
+    
+        verifyEmail();
+
+        function redirect() {
+          const messageDiv = document.getElementById('message');
+          let countdown = 5;
+          function update() {
+            if(countdown >= 0) {
+              messageDiv.innerText = `Your Email is now Verified !  You'll be automatically redirected to the main page in ${countdown} sec`;
+              countdown--;
+              setTimeout(update, 1000);
+            }
+            else{
+              window.location.href = './CLONE2/SIH-Project/index.html';
+            }
+          }
+          update();
+        }
+    </script>
+    <div class="parent">
+      <div class="content">
+        <img src="./CLONE2/SIH-Project/ecobin-removebg-preview.png" height="95px" width="485px">
+        <P> </P>
+        <div id="message"></div>
+      </div>
+    </div>
+</body>
+</html>
