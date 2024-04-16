@@ -1,0 +1,6 @@
+use npm to download these new packages
+
+nodemailer
+uuid v4
+dotenv
+randomstring
