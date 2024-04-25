@@ -29,7 +29,7 @@ Step 8 - type  in  `cd src`  , press Enter and again type  `node index.js`  . It
 
 Step 9 - Do not close the command prompt/BASH window . Go to any browser and type in  `http://localhost:3000`  in the URL and enjoy browsing the website.
 
-If you get any errors while running the webpage, you can contact us through  `ecobintechnology@gmail.com` or go to <a href="chat.openai.com">Sensei</a> for more help.
+If you get any errors while running the webpage, you can contact us through  `ecobintechnology@gmail.com` or go to <a href="https://chat.openai.com">Sensei</a> for more help.
 
 ## Thank You
 
