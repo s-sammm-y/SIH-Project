@@ -54,18 +54,18 @@
        <div class="rewards">
         <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
           <img src="https://m.media-amazon.com/images/I/71qKmUlzKpL._AC_UF1000,1000_QL80_.jpg" style="object-fit: cover; height: 134px; width: 200px;" >
-          <p>8 Perfumes Pack @ Rs.299 only from Just Herbs</p>
-          <button id="coupon" type="button" class="btn btn-dark redeem-btn" data-money="100" data-c-code="EDP8BOGMDM8NK">Redeem</button>
+          <p>Get 8 Pack of Perfumes for only Rs.299 from Just Herbs</p>
+          <button id="coupon1" type="button" class="btn btn-dark redeem-btn" data-money="100" data-c-code="EDP8BOGMDM8NK">Redeem for 100</button>
         </div>
-        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
           <img src="./assets/images]/flipkart.jpg">
-          <p>Details about the gift card/voucher/coupon</p>
-          <button id="coupon" type="button" class="btn btn-dark redeem-btn" data-money="500" data-c-code="FLIP@10">Redeem</button>
+          <p>10% Instant discount on Flipkart on orders above Rs.1499</p>
+          <button id="coupon2" type="button" class="btn btn-dark redeem-btn" data-money="500" data-c-code="FLIP@10">Redeem for 500</button>
         </div>
-        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
           <img src="./assets/images]/reliance.webp">
-          <p>Details about the gift card/voucher/coupon</p>
-          <button id="coupon" type="button" class="btn btn-dark redeem-btn" data-money="800" data-c-code="RELIANCE20DIGI">Redeem</button>
+          <p>Get Rs.2000 Off on orders above Rs.20,000 on Reliance Digital</p>
+          <button id="coupon3" type="button" class="btn btn-dark redeem-btn" data-money="800" data-c-code="RELIANCE2000DIGI">Redeem for 800</button>
         </div>
         <div class="modal" id="confirmationModal" tabindex="-1">
           <div class="modal-dialog">
@@ -76,22 +76,23 @@
               </div>
               <div class="modal-body">
                 <p>Do you want to buy this coupon code for <span id="modal-amount"></span>?</p>
+                <input type="hidden" id="couponCodeInput">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelcoupon">Cancel</button>
                 <button type="button" class="btn btn-primary" id="couponRedeem">Confirm</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="other" style="background-color: #D9D9D9; border-radius:10px; align-items: center;">
+        <div class="other" style="background-color: #D9D9D9; border-radius:10px; align-items: center; padding-bottom: 50px;">
           <h3 style="margin-top: 20px; margin-bottom: 30px;">Redeem for Cash</h3>
           <h6 >Available Balance</h6>
           <div style="display: flex; align-items: center;margin-top: 20px;">
             <i class="bi bi-currency-rupee" style="font-size: 20px;"></i>
-            <h3 id="availableBalance" style="margin-left: 5px; margin-top: 0;">0.0</h3>
+            <h3 id="availableBalance" style="margin-left: 5px;">0.0</h3>
           </div>
-          <div class="buttons">
+          <div class="buttons" style="padding-top: 30px;">
               <button id="redeemBtn" type="button" class="btn btn-dark" style="display: inline; margin-right:40px"
               data-bs-toggle="modal" data-bs-target="#withdrawModal">Redeem</button>
               <button type="button" class="btn btn-dark" id="withdrawBtn" >Withdraw</button>
@@ -150,35 +151,47 @@
             }
           });
         });
-        document.querySelectorAll('.redeem-btn').forEach(button => {
+        /*document.querySelectorAll('.redeem-btn').forEach(button => {
           button.addEventListener('click', () => {
+            const info = button.id;
             const money = button.getAttribute('data-money');
             document.getElementById('modal-amount').textContent = money;
             const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-            modal.show();
+            const bal = document.getElementById('points').innerText;
+            //console.log(bal);
+            if(bal>=parseInt(money)){
+              modal.show();
+            }
+            else{
+              alert("Insufficient Funds! ");
+            }
           });
-        });
+        });*/
 
         </script>
-      
-        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
-          <img src="./assets/images]/gplay.png">
-          <p>Details about the gift card/voucher/coupon</p>
-          <button id="coupon" type="button" class="btn btn-dark">Redeem</button>
+        <!--<div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
+          <img src="./assets/images]/flipkart.jpg">
+          <p>10% Instant discount on Flipkart on orders above Rs.1499</p>
+          <button id="coupon2" type="button" class="btn btn-dark redeem-btn" data-money="500" data-c-code="FLIP@10">Redeem for 500</button>
+        </div>-->
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow:hidden">
+          <img src="./assets/images]/gplay.png" height="137px">
+          <p>Get Google Play gift card worth $50</p>
+          <button id="coupon4" type="button" class="btn btn-dark redeem-btn" data-money="5000" data-c-code="XKR5 U66F 98PA X70Y">Redeem for 5000</button>
         </div>
-        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
           <img src="./assets/images]/lifestyle.png">
-          <p>Details about the gift card/voucher/coupon</p>
-          <button id="coupon" type="button" class="btn btn-dark">Redeem</button>
+          <p>Lifestyle Gift Card worth Rs500</p>
+          <button id="coupon5" type="button" class="btn btn-dark redeem-btn" data-money="1000" data-c-code="GD7T-A3EJ6N-DM69">Redeem for 1000</button>
         </div>
-        <div class="card" style="background-color: #D9D9D9; border-radius:10px;">
+        <div class="card" style="background-color: #D9D9D9; border-radius:10px; overflow: hidden;">
           <img src="./assets/images]/boat2.jpg" height="134px">
-          <p>Details about the gift card/voucher/coupon</p>
-          <button id="coupon" type="button" class="btn btn-dark">Redeem</button>
+          <p>Get 5% Off on all Boat Smartwatches and Headphones</p>
+          <button id="coupon6" type="button" class="btn btn-dark redeem-btn" data-money="300" data-c-code="GRtyhBt5">Redeem for 300</button>
         </div>
-        <div class="other" style="background-color: #D9D9D9; border-radius:10px;">
-          <h3 style="margin-top: 60px; margin-bottom: 20px;">Purchase Eco-Friendly Merchandise</h3>
-          <button type="button" class="visit btn btn-dark">View Merchandise</button>
+        <div class="other" style="background-color: #D9D9D9; border-radius:10px; padding-bottom: 80px;">
+          <h3 style="margin-top: 60px; margin-bottom: 27px;">Purchase Eco-Friendly Merchandise</h3>
+          <button id="Merchandise" type="button" class="visit btn btn-dark">View Merchandise</button>
         </div>
       </div>
     </div>
@@ -304,6 +317,9 @@
           console.error('Error fetching user by IP:', error);
         }
       });
+      document.getElementById('Merchandise').addEventListener('click', ()=>{
+        window.location.href = 'merch.html';
+      });
 
       document.getElementById('confirmRedeemBtn').addEventListener('click', async () => {
         const pointsToRedeem = document.getElementById('pointsToRedeem').value;
@@ -337,17 +353,11 @@
     });
 
     document.addEventListener('DOMContentLoaded', async () => {
-        const redeemBtns = document.querySelectorAll('.redeem-btn');
-        redeemBtns.forEach(btn => {
-            btn.addEventListener('click', async () => {
-                const dataMoney = btn.getAttribute('data-money');
-                const dataCouponCode = btn.getAttribute('data-c-code');
+          document.getElementById('couponRedeem').addEventListener('click', async () => {
+                //event.stopPropagation();
+                const dataMoney = document.getElementById('modal-amount').textContent;
+                const dataCouponCode = document.getElementById('couponCodeInput').value;;
                 const USERNAME = user.username;
-                const bal = user.points;
-                if(parseInt(dataMoney)>bal){
-                  alert("Not enough Balance");
-                  return;
-                }
                 try {
                     const response = await fetch('/api/redeemCoupon', {
                         method: 'POST',
@@ -367,9 +377,24 @@
                     console.error('Error redeeming coupon:', error);
                     alert('An error occurred while redeeming coupon.');
                 }
-            });
+        });
+
+    document.querySelectorAll('.redeem-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const money = button.getAttribute('data-money');
+            const code = button.getAttribute('data-c-code')
+            document.getElementById('modal-amount').textContent = money;
+            document.getElementById('couponCodeInput').value = code
+            const bal = document.getElementById('points').innerText;
+            if (parseInt(bal) >= parseInt(money)) {
+                const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                modal.show();
+            } else {
+                alert("Insufficient Funds! ");
+            }
         });
     });
+});
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script type="text/javascript">
