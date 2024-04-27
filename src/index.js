@@ -420,6 +420,71 @@ app.post("/schedulingPickup", async (req, res) => {
   }
 });
 
+const productSchema = new mongoose.Schema({
+  index: Number,
+  name: String,
+  description: String,
+  image: String,
+  price: Number,
+  credit: Number,
+  inventory: Number
+});
+
+const products = mongoose.model('product', productSchema);
+
+app.get('/getTopProducts', async (req, res) => {
+  try {
+      const product = await products.find().limit(3);
+      //console.log("Hello man");
+      res.json( product );
+  } catch (error) {
+      console.error('Error fetching products by IDs:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/getMoreElements', async (req, res) => {
+  try {
+      const product = await products.find({index:{$in:[4,5,6]}});
+      //console.log("Hello man");
+      res.json( product );
+  } catch (error) {
+      console.error('Error fetching products by IDs:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+const stripe = require('stripe')(process.env.stripe_api);
+
+app.post('/api/checkout', async(req,res) => {
+  try {
+    const { productName, price } = req.body;
+
+    const totalPrice = price;
+
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'], 
+        line_items: [
+            {
+                name: productName,
+                price: totalPrice,
+                currency: 'inr', 
+                quantity: 1,
+            }
+        ],
+        mode: 'payment',
+        success_url: 'http://localhost:3000/success',
+        cancel_url: 'http://localhost:3000/cancel', 
+    });
+
+    // Send the session ID back to the client
+    res.status(200).json({ sessionId: session.id });
+} catch (error) {
+    console.error('Error creating checkout session:', error);
+    res.status(500).json({ error: 'Failed to create checkout session' });
+}
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`\nServer is running on port ${PORT}`);
