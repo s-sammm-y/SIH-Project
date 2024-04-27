@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="./rewards.css">
+    <style>
+      .heading{
+    text-align: center;
+    color: darkgreen;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+.heading span{
+    color: black;
+    text-transform: uppercase;
+}
+      .productList {
+          display: flex;
+          flex-wrap: wrap;
+          
+      }
+      .box{
+        width: calc(33.33% - 20px);
+        text-align: center;
+        justify-content: center;
+
+        margin: 10px;
+      }
+      .product {
+          width: 30%;
+          margin-bottom: 20px;
+          padding: 10px;
+          border: 1px solid black;
+          border-radius: 1px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .product .image img {
+          width: 10%;
+          max-width: 150px;
+          height: auto;
+      }
+
+      .product .name {
+          margin-top: 10px;
+          font-weight: bold;
+      }
+
+      .product .price {
+          margin-top: 5px;
+          font-size: 14px;
+          color: #888;
+      }
+
+      .product .credits {
+          margin-top: 5px;
+          font-size: 14px;
+          color: #888;
+      }
+      #paymentForm{
+        display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+      }
+      #paymentForm select{
+        background-color: yellow;
+      }
+  </style>
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <i class="bi bi-list"></i>
+    </label>
+    <label class="logo"
+      ><a href="../index.html"><img src="./assets/images]/ecobin-removebg-preview.png" alt="" class="logo-image"/></a></label>
+    <ul>
+      
+      <li style="padding-right:0; color:white;font-size: 18px;font-weight: bold;" id="username"></li>
+      <li>
+        <a href="#" class="icon1 pt-3" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+          
+            <i
+              class="bi bi-person-fill"
+              style="font-size: 30px !important"
+            ></i>
+          
+        </a>
+      </li>
+    </ul>
+  </nav>
+      <div class="user-details">
+        <div class="credit-points-display">
+            <i class="bi bi-wallet-fill" style="display: inline; font-size:22px; margin-right:10px"></i>
+            <h5 style="display: inline; margin-bottom:30px">Available Points</h5>
+            <h3 id="points" style="margin: 20px 10px 20px 24px">NaN<h3>
+        </div>
+      </div>
+      <h1 class="heading">Order <span>Summary</span></h1>
+      <div class="productList"></div>
+      <div class="empty"><p></p></div>
+        <form id="paymentForm" >
+          <label for="paymentMethod">Select payment method:</label>
+          <select id="paymentMethod" name="paymentMethod">
+            <option value="cash">Cash/Card/UPI</option>
+            <option value="credits">Credit Points</option>
+          </select>
+          <button type="submit">Submit</button>
+          <div id="paymentAmount"></div>
+        </form>
+        <!-- Product items will be dynamically added here -->
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            console.log('DOMContentLoaded event fired');
+            try {
+                const response = await fetch('/api/getUserByIP');
+                if (response.ok) {
+                    const data = await response.json();
+                    user = data.user;
+                    if (user) {
+                        const username = user.username;
+                        const pts = user.points;
+                        document.getElementById('username').innerText = username;
+                        document.getElementById('points').innerText = pts;
+                    }
+                } else {
+                    console.error('Error fetching user by IP:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching user by IP:', error);
+            }
+    
+            const paymentForm = document.getElementById('paymentForm');
+            const paymentAmount = document.getElementById('paymentAmount');
+
+            // Prevent default form submission behavior and handle payment calculation
+            paymentForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const paymentMethod = document.getElementById('paymentMethod').value;
+                const items = document.querySelectorAll('.box');
+
+                let totalAmount = 0;
+                if (paymentMethod === 'credits') {
+                    items.forEach(item => {
+                        const creditsText = item.querySelector('.credits').textContent;
+                        const credits = parseFloat(creditsText.split('-')[1].trim());
+                        totalAmount += credits;
+                    });
+                    paymentAmount.textContent = `Total Credits Required: ${totalAmount}`;
+                } else {
+                    items.forEach(item => {
+                        const priceText = item.querySelector('.price').textContent;
+                        const price = parseFloat(priceText.split('Rs.')[1].trim());
+                        totalAmount += price;
+                    });
+                    paymentAmount.textContent = `Total Price: Rs.${totalAmount}`;
+                }
+            });
+            // Display product list
+            const productList = document.querySelector('.productList');
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            urlParams.forEach((value, key) => {
+                if (key.startsWith('product')) {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('box');
+
+                    const imageDiv = document.createElement('div');
+                    imageDiv.classList.add('image');
+                    const image = document.createElement('img');
+                    image.src = urlParams.get(`image${key.slice(7)}`);
+                    image.width = 100;
+                    image.height = 100;
+                    imageDiv.appendChild(image);
+
+                    const nameDiv = document.createElement('div');
+                    nameDiv.classList.add('name');
+                    const name = document.createElement('h4');
+                    name.textContent = value;
+                    nameDiv.appendChild(name);
+
+                    const priceDiv = document.createElement('div');
+                    priceDiv.classList.add('price');
+                    const fullPrice = urlParams.get(`price${key.slice(7)}`);
+                    const price = fullPrice.substring(fullPrice.indexOf('Rs.'));
+                    priceDiv.textContent = `Price: ${price}`;
+
+
+                    const creditsDiv = document.createElement('div');
+                    creditsDiv.classList.add('credits');
+                    creditsDiv.textContent = urlParams.get(`credits${key.slice(7)}`);
+
+                    productDiv.appendChild(imageDiv);
+                    productDiv.appendChild(nameDiv);
+                    productDiv.appendChild(priceDiv);
+                    productDiv.appendChild(creditsDiv);
+
+                    productList.appendChild(productDiv);
+                }
+            });
+        });
+
+        const paymentForm = document.getElementById('paymentForm');
+        paymentForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const paymentMethod = document.getElementById('paymentMethod').value;
+
+            // If payment method is credits, show total price
+            if (paymentMethod === 'credits') {
+                const totalPrice = Array.from(urlParams.getAll('price'))
+                    .reduce((acc, val) => acc + parseFloat(val), 0);
+                document.getElementById('paymentAmount').textContent = `Total Price: ${totalPrice}`;
+            } else {
+                // If payment method is cash/card/UPI, submit form data to server
+                const formData = new FormData(paymentForm);
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                try {
+                    const response = await fetch('/api/checkout', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    if (response.ok) {
+                        const responseData = await response.json();
+                        const stripe = Stripe('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');
+                        await stripe.redirectToCheckout({ sessionId: responseData.sessionId });
+                    } else {
+                        console.error('Error processing payment:', response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error processing payment:', error);
+                }
+            }
+        });
+      </script>
+    
+      <!--footer-->
+      <div class="footer">
+        <div class="bottom">
+          <div class="ftrlinks" id="start">
+            <i class="bi bi-twitter-x footer-icons"></i>
+          </div>
+          <div class="ftrlinks">
+            <i class="bi bi-facebook footer-icons"></i>
+          </div>
+          <div class="ftrlinks">
+            <i class="bi bi-instagram footer-icons"></i>
+          </div>
+          <div class="ftrlinks">
+          <a href="mailto:ecobintechnology@gmail.com">
+            <i class="bi bi-envelope footer-icons"></i>
+          </a>
+          </div>
+          <div class="ftrlinks" id="end">
+            <i class="bi bi-linkedin footer-icons"></i>
+          </div>
+        </div>
+        <span class="ftrtxt">© ECOBIN| All right reserved</span>
+      </div>
+</body>
+</html>
