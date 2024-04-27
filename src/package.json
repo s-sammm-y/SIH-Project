@@ -2,6 +2,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "nodemailer": "^6.9.13",
+    "stripe": "^15.4.0",
     "uuidv4": "^6.2.13"
   }
 }
