@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+      <h1>Login</h1>
+      <div class="input-box">
+        <input type="text" id="username" placeholder="Username" required></input>
+        <i class='bx bxs-user'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required></input>
+        <i id="eye" class='bx bx-low-vision'></i>
+      </div>
+      <div class="login-options">
+        <p>Select your login type:</p>
+        <button data-login-type="admin">Admin</button>
+        <button data-login-type="recycle">Recycle Centre</button>
+      </div>
+      <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+        <a href="forgot_pass.html">Forgot Password</a>
+      </div>
+      <button type="submit" class="btn" id="loginBtn">Login</button>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eye');
+      
+        eyeIcon.addEventListener('click', function () {
+          // Toggling the password visibility when the user clicks on the eye icon
+          if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('bx-low-vision');
+            eyeIcon.classList.add('bx-show');
+          } 
+          else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('bx-show');
+            eyeIcon.classList.add('bx-low-vision');
+          }
+        });
+        const loginButtons = document.querySelectorAll('.login-options button');
+        loginButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            loginButtons.forEach(btn => {
+            btn.classList.remove('selected');
+            });
+            this.classList.add('selected');
+        });
+        });
+        let selectedLoginType = null;
+
+        const loginTypeButtons = document.querySelectorAll('.login-options button');
+        loginTypeButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            selectedLoginType = this.getAttribute('data-login-type');
+            console.log('Selected login type:', selectedLoginType);
+          });
+        });
+
+        const loginBtn = document.getElementById('loginBtn');
+        loginBtn.addEventListener('click', function() {
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+
+          if(selectedLoginType) {
+            const url = `/${selectedLoginType}-login`;
+            const data = {
+              username: username,
+              password: password
+            };
+
+            fetch(url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            })
+            .then(response => {
+              if (response.ok) {
+                console.log("GGs");
+                window.location.href = response.url;
+              } else {
+                alert('Login failed. Please try again.'); 
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('An error occurred. Please try again.'); 
+            });
+          } else {
+            alert('Please select a login type.'); 
+          }
+        });
+    })
+  </script>
+</body>
+</html>

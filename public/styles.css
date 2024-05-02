@@ -102,3 +102,41 @@ body{
 .register-link p a:hover{
   text-decoration: underline;
 }
+.login-options {
+  margin-bottom: 20px;
+}
+
+.login-options p {
+  margin-bottom: 10px;
+}
+
+.login-options button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-options button:hover{
+  background-color: #019c5f;
+  color: #fff;
+}
+.login-options button.selected {
+  background-color: #019C5F;
+  color: #fff;
+}
+/* Adjusted styling for "Forgot Password" link */
+.remember-forgot {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.remember-forgot a {
+  font-size: 0.9rem;
+  /*color: #019C5F;*/
+  text-decoration: none;
+}

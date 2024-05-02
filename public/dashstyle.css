@@ -32,7 +32,7 @@
     --clr-dark:#edeffb;
     --clr-dark--variant: #677483;
     --box-shadow:0 2rem 3rem var(--clr--light);
-
+    --clr-text-white: #fff;
 
 }
 *{
@@ -87,7 +87,9 @@ h5{
 small{
     font-size: 0.75rem;
 }
-
+.dark-theme-variables small {
+    color: var(--clr-text-white);
+}
 .profile-photo img{
     width: 2.8rem;
     height: 2.8rem;
@@ -351,12 +353,16 @@ main .insights .progress .number{
     justify-content: center;
     align-items: center;
 }
-
+.dark-theme-variables main .insights .progress .number{
+    color: var(--clr-text-white);
+}
 main .recent_orders{
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 main .recent_orders h2{
+    margin-left: 15px;
+    margin-bottom: 15px;
     color: var(--clr-dark);
 }
 
@@ -462,7 +468,10 @@ main .recent_orders a{
     margin-left: -20px;
 
 }
-
+.right .recent_updates h2{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
 .right .recent_updates .updates{
     background-color: var(--clr-white);
     padding: var(--card-padding);
