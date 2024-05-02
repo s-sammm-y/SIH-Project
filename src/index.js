@@ -11,7 +11,9 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
 const { nextTick } = require('process');
-const center = require('./center_schema')
+const center = require('./center_schema');
+const { request } = require('http');
+const { Console } = require('console');
 //const exphbs = require('express-handlebars');
 
 const app = Express();
@@ -63,7 +65,6 @@ app.post('/api/login', async(req,res) =>{
         expiresAt: expiresat,
         ipAddress: IPAddress,
     });
-
     await loginDetails.save();
     res.status(200).json({message:'Login successful'});
   }
@@ -308,22 +309,6 @@ const pickupSchema = {
  
 const pickups = mongoose.model('pickups', pickupSchema);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Twilio Account SID
 const authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Twilio Auth Token
 const client = require('twilio')(accountSid, authToken);
@@ -483,6 +468,86 @@ app.post('/api/checkout', async(req,res) => {
     console.error('Error creating checkout session:', error);
     res.status(500).json({ error: 'Failed to create checkout session' });
 }
+});
+const adminschema = new mongoose.Schema({username:String,password:String})
+const Admins = mongoose.model('Admins',adminschema);
+app.post('/admin-login',async(request,response)=>{
+  const {username, password} = request.body;
+  try{
+    const user = await Admins.findOne({username:username});
+    
+    if(!user){
+      console.log("nigga")
+      return response.status(401).json({ error: 'Invalid username or password' });
+    }
+    if(password===user.password){
+      response.redirect(`/dashboard.html?username=${encodeURIComponent(username)}`);
+    }
+    else{
+      console.log('Password does not match');
+      response.status(401).json({error:'Invalid username or password'});
+    }
+  } catch(error) {
+    console.error('Error:', error);
+    response.status(500).json({ error: 'An error occurred' });
+  }
+})
+
+app.post('/recycle-login',async(request,response)=>{
+  
+})
+
+const withdrawschema = new mongoose.Schema({username:String , requestedAmount:Number, UPI_ID:String});
+const moneyrequests = mongoose.model('moneyrequests',withdrawschema);
+app.post('/api/moneywithdraw',async(request,response)=>{
+  const {balance,USERNAME,UPI} = request.body;
+  //console.log(UPI)
+  try{
+    const user = await User.findOne({username:USERNAME});
+    if (!user) {
+      return response.status(404).send('User not found.');
+    }
+    user.withdrawableAmount = 0
+    await user.save()
+    const withdrawal = new moneyrequests({
+      username:USERNAME,
+      requestedAmount:balance,
+      UPI_ID:UPI
+    })
+    await withdrawal.save();
+    var dt = new Date();
+    await transporter.sendMail({
+      from: process.env.AUTH_EMAIL,
+      to: user.email, 
+      subject: 'Money Withdrawal',
+      html:`
+        <h4>Dear ${USERNAME}, You have recently requested for a withdrawal of Rs.${balance} at ${dt.toLocaleTimeString().slice(0,-3)} today.</h4>
+        <p> </p>
+        <h4>Your money will be credited to your bank account in 2-3 business days</h4>
+        <p> </p>
+        <h4>For further queries, contact us at ${process.env.AUTH_EMAIL}</h4>
+        <div>
+          <img src="https://5.imimg.com/data5/PV/ER/MY-1232280/eco-660-ltr-4-wheeled-bins-1000x1000.png" alt="ECOBIN" style="width: 200px; height: 200px;">
+        </div>
+      `
+    });
+    response.status(200).send('Money Withdrawal success.');
+  }
+  catch(error){
+    console.error('Error Withddrawing Stonks', error);
+    response.status(500).send('Internal server error.');
+  }
+})
+
+app.get('/getwithdrawreqs', async (req, res) => {
+  try {
+      const requests = await moneyrequests.find();
+      //console.log("Hello man");
+      res.json( requests);
+  } catch (error) {
+      console.error('Error fetching products by IDs:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
